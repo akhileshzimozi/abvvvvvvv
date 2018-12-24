@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{9AA2D3C6-3393-45F1-8E7C-5A9901728795}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Blabyap.Droid</RootNamespace>
+    <AssemblyName>Blabyap.Android</AssemblyName>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <AndroidKeyStore>false</AndroidKeyStore>
+    <ReleaseVersion>0.5</ReleaseVersion>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AiForms.Layouts">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="akavache">
+      <Version>6.0.31</Version>
+    </PackageReference>
+    <PackageReference Include="akavache.core">
+      <Version>6.0.31</Version>
+    </PackageReference>
+    <PackageReference Include="akavache.sqlite3">
+      <Version>6.0.31</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.SignalR.Client">
+      <Version>2.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator">
+      <Version>16.4.0.42</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfDataForm">
+      <Version>16.4.0.42</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfListView">
+      <Version>16.4.0.42</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRotator">
+      <Version>16.4.0.42</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Connectivity">
+      <Version>3.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Settings">
+      <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Annotations">
+      <Version>28.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Compat">
+      <Version>28.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs">
+      <Version>28.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Auth">
+      <Version>1.6.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations">
+      <Version>2.4.4.859</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.4.859</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>1.1.5.180</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.MultiGestureView">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Multilingual">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Forms.Controls.SwipeCards">
+      <Version>0.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Forms">
+      <Version>7.1.0.431</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.DryIoc.Forms">
+      <Version>7.1.0.431</Version>
+    </PackageReference>
+    <PackageReference Include="Xfx.Controls">
+      <Version>1.1.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderer\CustomUrlSchemeInterceptorActivity.cs" />
+    <Compile Include="Renderer\LoginRenderer.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderer\ExtendedViewCellRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Tabbar.axml" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon_round.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\aboutusIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\addphoto.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\back.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\bg.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\camera.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\cancel.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CanvasSelection.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\changepasswordbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\chatbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ChatPic1.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ChatPic2.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ChatPic3.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ChatPic4.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\chatprofile1.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\chatprofile2.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\completecvbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\contactus.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\discoveryIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\educationIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Ellipse.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\flagIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\gallery.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\getstartedbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Group11.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Group12.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Group21.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Group22.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Group31.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Group32.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Group41.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Group42.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\industryIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\keepswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\lineImage.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\lineShape.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\locationIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\loginbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\loginlinkdinbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logobtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logoutbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\masterIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\matchprofilepic.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\meetbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\meetnowIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\msgicon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\MycvIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\organizationIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\passbutton.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\passportIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\premiumIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\PrivacyPolicy.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ProfilePic.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\profilepicture.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\RatingStar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Sendbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\sendIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\settingsIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Shape.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\signupbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Star.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\startswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\suggestions.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\supermatchbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\SwipePic.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\termsandconditions.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\unmatchbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\useskinbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\VIPIcon.png" />
+    <AndroidResource Include="Resources\drawable\Shape.png" />
+    <AndroidResource Include="Resources\drawable\bg.png" />
+    <AndroidResource Include="Resources\drawable\Logo.png" />
+    <AndroidResource Include="Resources\drawable\loginbtn.png" />
+    <AndroidResource Include="Resources\drawable\loginlinkdinbtn.png" />
+    <AndroidResource Include="Resources\drawable\masterIcon.png" />
+    <AndroidResource Include="Resources\drawable\logobtn.png" />
+    <AndroidResource Include="Resources\drawable\cancel.png" />
+    <AndroidResource Include="Resources\drawable\back.png" />
+    <AndroidResource Include="Resources\drawable\addphoto.png" />
+    <AndroidResource Include="Resources\drawable\signupbtn.png" />
+    <AndroidResource Include="Resources\drawable\camera.png" />
+    <AndroidResource Include="Resources\drawable\gallery.png" />
+    <AndroidResource Include="Resources\drawable\completecvbtn.png" />
+    <AndroidResource Include="Resources\drawable\Ellipse.png" />
+    <AndroidResource Include="Resources\drawable\msgicon.png" />
+    <AndroidResource Include="Resources\drawable\startswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable\ProfilePic.png" />
+    <AndroidResource Include="Resources\drawable\discoveryIcon.png" />
+    <AndroidResource Include="Resources\drawable\meetnowIcon.png" />
+    <AndroidResource Include="Resources\drawable\passportIcon.png" />
+    <AndroidResource Include="Resources\drawable\premiumIcon.png" />
+    <AndroidResource Include="Resources\drawable\settingsIcon.png" />
+    <AndroidResource Include="Resources\drawable\aboutusIcon.png" />
+    <AndroidResource Include="Resources\drawable\VIPIcon.png" />
+    <AndroidResource Include="Resources\drawable\lineShape.png" />
+    <AndroidResource Include="Resources\drawable\CanvasSelection.png" />
+    <AndroidResource Include="Resources\drawable\suggestions.png" />
+    <AndroidResource Include="Resources\drawable\contactus.png" />
+    <AndroidResource Include="Resources\drawable\termsandconditions.png" />
+    <AndroidResource Include="Resources\drawable\PrivacyPolicy.png" />
+    <AndroidResource Include="Resources\drawable\flagIcon.png" />
+    <AndroidResource Include="Resources\drawable\logoutbtn.png" />
+    <AndroidResource Include="Resources\drawable\changepasswordbtn.png" />
+    <AndroidResource Include="Resources\drawable\profilepicture.png" />
+    <AndroidResource Include="Resources\drawable\chatprofile2.png" />
+    <AndroidResource Include="Resources\drawable\chatprofile1.png" />
+    <AndroidResource Include="Resources\drawable\chatbtn.png" />
+    <AndroidResource Include="Resources\drawable\keepswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable\ChatPic4.png" />
+    <AndroidResource Include="Resources\drawable\ChatPic3.png" />
+    <AndroidResource Include="Resources\drawable\ChatPic2.png" />
+    <AndroidResource Include="Resources\drawable\ChatPic1.png" />
+    <AndroidResource Include="Resources\drawable\Star.png" />
+    <AndroidResource Include="Resources\drawable\RatingStar.png" />
+    <AndroidResource Include="Resources\drawable\unmatchbtn.png" />
+    <AndroidResource Include="Resources\drawable\useskinbtn.png" />
+    <AndroidResource Include="Resources\drawable\Group12.png" />
+    <AndroidResource Include="Resources\drawable\Group11.png" />
+    <AndroidResource Include="Resources\drawable\Group42.png" />
+    <AndroidResource Include="Resources\drawable\Group41.png" />
+    <AndroidResource Include="Resources\drawable\Group22.png" />
+    <AndroidResource Include="Resources\drawable\Group21.png" />
+    <AndroidResource Include="Resources\drawable\Group32.png" />
+    <AndroidResource Include="Resources\drawable\Group31.png" />
+    <AndroidResource Include="Resources\drawable\getstartedbtn.png" />
+    <AndroidResource Include="Resources\drawable\Sendbtn.png" />
+    <AndroidResource Include="Resources\drawable\supermatchbtn.png" />
+    <AndroidResource Include="Resources\drawable\meetbtn.png" />
+    <AndroidResource Include="Resources\drawable\passbutton.png" />
+    <AndroidResource Include="Resources\drawable\sendIcon.png" />
+    <AndroidResource Include="Resources\drawable\matchprofilepic.png" />
+    <AndroidResource Include="Resources\drawable\educationIcon.png" />
+    <AndroidResource Include="Resources\drawable\organizationIcon.png" />
+    <AndroidResource Include="Resources\drawable\industryIcon.png" />
+    <AndroidResource Include="Resources\drawable\locationIcon.png" />
+    <AndroidResource Include="Resources\drawable\SwipePic.png" />
+    <AndroidResource Include="Resources\drawable\lineImage.png" />
+    <AndroidResource Include="Resources\drawable\hamburger.png" />
+    <AndroidResource Include="Resources\drawable\MycvIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\hamburger.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\aboutusIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\addphoto.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\back.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\bg.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\camera.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\cancel.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\CanvasSelection.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\changepasswordbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\chatbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ChatPic1.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ChatPic2.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ChatPic3.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ChatPic4.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\chatprofile1.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\chatprofile2.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\completecvbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\contactus.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\discoveryIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\educationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Ellipse.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\flagIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\gallery.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\getstartedbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Group11.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Group12.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Group21.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Group22.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Group31.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Group32.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Group41.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Group42.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\hamburger.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\industryIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\keepswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\lineImage.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\lineShape.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\locationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\loginbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\loginlinkdinbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Logo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logobtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logoutbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\masterIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\matchprofilepic.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\meetbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\meetnowIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\msgicon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\MycvIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\organizationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\passbutton.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\passportIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\premiumIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\PrivacyPolicy.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ProfilePic.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\profilepicture.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\RatingStar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Sendbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\sendIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\settingsIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Shape.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\signupbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Star.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\startswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\suggestions.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\supermatchbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\SwipePic.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\termsandconditions.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\unmatchbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\useskinbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\VIPIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\aboutusIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\addphoto.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\back.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\bg.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\camera.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\cancel.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\CanvasSelection.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\changepasswordbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\chatbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ChatPic1.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ChatPic2.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ChatPic3.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ChatPic4.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\chatprofile1.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\chatprofile2.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\completecvbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\contactus.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\discoveryIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\educationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Ellipse.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\flagIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\gallery.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\getstartedbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Group11.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Group12.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Group21.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Group22.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Group31.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Group32.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Group41.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Group42.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\hamburger.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\industryIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\keepswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\lineImage.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\lineShape.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\locationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\loginbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\loginlinkdinbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Logo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logobtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logoutbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\masterIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\matchprofilepic.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\meetbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\meetnowIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\msgicon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\MycvIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\organizationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\passbutton.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\passportIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\premiumIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\PrivacyPolicy.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ProfilePic.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\profilepicture.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\RatingStar.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Sendbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\sendIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\settingsIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Shape.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\signupbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Star.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\startswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\suggestions.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\supermatchbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\SwipePic.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\termsandconditions.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\unmatchbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\useskinbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\VIPIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\aboutusIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\addphoto.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\back.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\bg.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\camera.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\cancel.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\CanvasSelection.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\changepasswordbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\chatbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ChatPic1.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ChatPic2.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ChatPic3.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ChatPic4.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\chatprofile1.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\chatprofile2.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\completecvbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\contactus.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\discoveryIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\educationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Ellipse.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\flagIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\gallery.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\getstartedbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Group11.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Group12.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Group21.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Group22.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Group31.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Group32.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Group41.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Group42.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\hamburger.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\industryIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\keepswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\lineImage.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\lineShape.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\locationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\loginbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\loginlinkdinbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Logo.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\logobtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\logoutbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\masterIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\matchprofilepic.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\meetbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\meetnowIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\msgicon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\MycvIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\organizationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\passbutton.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\passportIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\premiumIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\PrivacyPolicy.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ProfilePic.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\profilepicture.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\RatingStar.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Sendbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\sendIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\settingsIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Shape.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\signupbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Star.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\startswipingbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\suggestions.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\supermatchbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\SwipePic.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\termsandconditions.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\unmatchbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\useskinbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\VIPIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\blogo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\blogo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\blogo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\blogo.png" />
+    <AndroidResource Include="Resources\drawable\blogo.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\AppTour1.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\AppTour2.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\AppTour1.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\AppTour2.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\AppTour1.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\AppTour2.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\AppTour1.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\AppTour2.png" />
+    <AndroidResource Include="Resources\drawable\AppTour1.png" />
+    <AndroidResource Include="Resources\drawable\AppTour2.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\blabyapPlus.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\blabyapVIP.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\getmeetnow.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\getsupermatches.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\blabyapPlus.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\blabyapVIP.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\getmeetnow.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\getsupermatches.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\blabyapPlus.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\blabyapVIP.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\getmeetnow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\getsupermatches.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\blabyapPlus.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\blabyapVIP.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\getmeetnow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\getsupermatches.png" />
+    <AndroidResource Include="Resources\drawable\blabyapPlus.png" />
+    <AndroidResource Include="Resources\drawable\blabyapVIP.png" />
+    <AndroidResource Include="Resources\drawable\getmeetnow.png" />
+    <AndroidResource Include="Resources\drawable\getsupermatches.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\deleteaccountbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\deleteaccountbtn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\deleteaccountbtn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\deleteaccountbtn.png" />
+    <AndroidResource Include="Resources\drawable\deleteaccountbtn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\HideAge.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Invisible.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Skin.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\HideAge.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Invisible.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Skin.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\HideAge.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Invisible.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Skin.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\HideAge.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Invisible.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Skin.png" />
+    <AndroidResource Include="Resources\drawable\HideAge.png" />
+    <AndroidResource Include="Resources\drawable\Invisible.png" />
+    <AndroidResource Include="Resources\drawable\Skin.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Canvas1.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Canvas2.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Canvas1.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Canvas2.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Canvas1.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Canvas2.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Canvas1.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Canvas2.png" />
+    <AndroidResource Include="Resources\drawable\Canvas1.png" />
+    <AndroidResource Include="Resources\drawable\Canvas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\file_paths.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blabyap.Common.Model\Blabyap.Common.Model.csproj">
+      <Project>{6bf8f6f8-57c1-463e-abee-3252da0e4d52}</Project>
+      <Name>Blabyap.Common.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blabyap\Blabyap.csproj">
+      <Project>{E5849E1D-5CA3-44CD-BAC1-CBEE1FA9FF82}</Project>
+      <Name>Blabyap</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\InBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\InBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\InBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\InBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\LoginBttn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\LoginBttn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\LoginBttn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\LoginBttn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\SBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\SBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\SBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\SBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\GotoDisc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\GotoDisc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\GotoDisc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\GotoDisc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\CPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\FPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\CPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\FPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\CPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\FPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\CPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\FPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\RPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\RPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\RPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\RPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\RoundedRectangleChatBrown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\RoundedRectangleChatWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\RoundedRectangleChatBrown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\RoundedRectangleChatWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\RoundedRectangleChatBrown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\RoundedRectangleChatWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\RoundedRectangleChatBrown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\RoundedRectangleChatWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\splashIogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\splashIogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\splashIogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\splashIogo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>

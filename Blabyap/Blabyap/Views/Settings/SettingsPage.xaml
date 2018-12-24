@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion1="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             Title="{Binding Title}" 
+             BackgroundImage="bg" 
+             NavigationPage.HasNavigationBar="True"
+             x:Class="Blabyap.Views.SettingsPage"
+             x:Name="settingsPageRef">
+    
+            
+   <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,30,0,0" />
+            <On Platform="Android" Value="10,-17,10,0" />
+
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    <Grid  RowSpacing="-32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" RowSpacing="-35">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+       
+            <Button Grid.Row="0"  Image="blabyapVIP" 
+                    BackgroundColor="Transparent"
+           Command="{Binding BindingContext.VIPAccountCommand,Source={x:Reference settingsPageRef}}"
+                    />
+            <Button Grid.Row="1"  Image="blabyapPlus"  
+                    BackgroundColor="Transparent" 
+           Command="{Binding BindingContext.UnlockFeatuesCommand,Source={x:Reference settingsPageRef}}"
+                    />
+            
+            <StackLayout Grid.Row="2" Orientation="Horizontal" 
+                          Spacing="-18">
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="35,5,0,0"/>
+                        <On Platform="Android" Value="-12,0,0,0"/>
+                        <On Platform="WinPhone" Value="25,5,0,0"/>
+                    </OnPlatform>
+                </StackLayout.Margin>
+                <Button Image="getmeetnow" BackgroundColor="Transparent" 
+           Command="{Binding BindingContext.MeetNowCommand,Source={x:Reference settingsPageRef}}"
+                  HorizontalOptions="Start"      />
+                <Button Image="getsupermatches" BackgroundColor="Transparent" 
+           Command="{Binding BindingContext.SuperMatchCommand,Source={x:Reference settingsPageRef}}"
+                  HorizontalOptions="End"  >
+                <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="10,0,0,0"/>
+                        <On Platform="Android" Value="0,0,0,0"/>
+                        <On Platform="WinPhone" Value="25,5,0,0"/>
+                    </OnPlatform>
+                </Button.Margin>   
+                </Button>    
+            </StackLayout>
+         
+        </Grid>
+        
+        <Grid Grid.Row="1" Margin="0,15,0,0" RowSpacing="-34">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="General" Style="{StaticResource labelwhite}" 
+                       HorizontalOptions="Center" Margin="15"/>
+            
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Image="HideAge" Grid.ColumnSpan="2"  
+                            BackgroundColor="Transparent" 
+                            />
+                <Switch Grid.Column="1" OnColor="#ff5c4c" 
+                            HorizontalOptions="End" VerticalOptions="Center" Toggled="HideAgeCommand" >
+                  
+                </Switch>
+
+
+            </Grid>
+            
+                <Grid Grid.Row="2">
+                   <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                        <Button Image="Invisible" Grid.ColumnSpan="2"  
+                                BackgroundColor="Transparent"  
+                                />
+                        <Switch Grid.Column="1" OnColor="#ff5c4c"  Toggled="HideMeCommand"
+                                HorizontalOptions="End" VerticalOptions="Center"/>
+                </Grid>
+            
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                
+                    <Button Image="Skin" Grid.ColumnSpan="2"  
+                            BackgroundColor="Transparent" 
+                    Command="{Binding BindingContext.SkinChangeCommand,Source={x:Reference settingsPageRef}}"
+                            />
+                    <!--<Label Grid.Column="1" Text="Original" 
+                           HorizontalOptions="End" VerticalOptions="Center"
+                            Style="{StaticResource labelblack}"/>-->
+                </Grid>
+            
+
+        
+        </Grid>
+        <syncfusion1:SfBusyIndicator  x:Name="busyIndicator" Title="Loading..." 
+                                      Grid.Row="1"   IsVisible="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" TextColor="Black"/>
+
+
+
+        <Button Grid.Row="3" Image="deleteaccountbtn" BackgroundColor="Transparent"
+           Command="{Binding BindingContext.DeleteAccountCommand,Source={x:Reference settingsPageRef}}"
+             />
+        
+    </Grid>
+
+</ContentPage>

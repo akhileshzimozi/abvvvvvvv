@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="Blabyap.Views.LoginPage"
+             BackgroundImage="bg" 
+             NavigationPage.HasNavigationBar="False"
+             
+               x:Name="loginPageRef"
+             
+               xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:syncfusion1="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:local="clr-namespace:Blabyap.Controls"
+             prism:ViewModelLocator.AutowireViewModel="True">
+
+
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,30,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid RowSpacing="10" Margin="0,0,0,0">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="8.8*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Text="Login" Style="{StaticResource heading}" />
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1.2*"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Margin="0,-30,0,0" Source="Logo" Scale="1" 
+                 VerticalOptions="Start"/>
+
+            <StackLayout Grid.Row="1"  Spacing="20" Margin="25,30,25,0">
+                <Entry  Keyboard="Chat" Text="{Binding UserName}" Placeholder="Email" Style="{StaticResource entry}"/>
+                <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}" Style="{StaticResource entry}"/>
+                <Button Margin="0,0,20,0" Text="Forgot Password?" TextColor="#000000" HorizontalOptions="End" 
+                    VerticalOptions="Center" BackgroundColor="Transparent"   Command="{Binding BindingContext.ForgotCommand,Source={x:Reference loginPageRef}}" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" BackgroundColor="Transparent" HorizontalOptions="Center" Margin="0">
+                <Button Image="LoginBttn" Scale="1" 
+                    BackgroundColor="Transparent"
+                    Command="{Binding BindingContext.LoginCommand,Source={x:Reference loginPageRef}}"
+                    >
+                    <Button.Triggers>
+                        <EventTrigger Event="Clicked">
+                            <local:ExpandButtonTriggerAction />
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button  Image="InBtn" Scale="1"  
+                    BackgroundColor="Transparent"
+                                   Command="{Binding BindingContext.LinkedInCommand,Source={x:Reference loginPageRef}}"
+
+                    >
+                    <Button.Triggers>
+                        <EventTrigger Event="Clicked">
+                            <local:ExpandButtonTriggerAction />
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+                <StackLayout.Spacing>
+                    <OnPlatform x:TypeArguments="x:Double" Android="-30" iOS="20"/>
+
+
+                </StackLayout.Spacing>
+            </StackLayout>
+            <syncfusion1:SfBusyIndicator  x:Name="busyIndicator" Title="Loading..." Grid.Row="1" Grid.RowSpan="2" IsVisible="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" TextColor="White" />
+            <!--<ActivityIndicator Color="Black" VerticalOptions="Center"  IsRunning="{Binding IsBusy}" Grid.Row="1" Grid.RowSpan="2" HorizontalOptions="Center" IsVisible="{Binding IsBusy}"/>-->
+            <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="Center"
+                     VerticalOptions="End" Margin="0,20,0,0">
+                <Label Text="Don't have an account?" TextColor="#000000" Margin="0,7,0,0" Style="{StaticResource  labelwhite}"/>
+                <Button Text="Sign Up" TextColor="#FFFFFF" Style="{StaticResource  labelwhite}" Margin="0,-8,0,0"
+                       Command="{Binding BindingContext.SignUpCommand,Source={x:Reference loginPageRef}}"
+                   />
+
+
+
+            </StackLayout>
+
+        </Grid>
+    </Grid>
+
+
+
+    <!--</Grid>-->
+    <!--<StackLayout>
+        <FlexLayout Direction="Column" JustifyContent="SpaceEvenly" >
+            <Image Source="Logo" BackgroundColor="Transparent" Margin="40" FlexLayout.AlignSelf="Center"/>
+            <Entry Placeholder="Email" HorizontalTextAlignment="Center" Margin="20,0,20,0"/>
+            <Entry Placeholder="Password" HorizontalTextAlignment="Center" Margin="20,0,20,0"/>
+
+        </FlexLayout>
+
+        <FlexLayout Direction="Column" AlignItems="Center">
+            <Label Text="Forget Password?" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+
+        </FlexLayout>
+
+
+        <StackLayout VerticalOptions="EndAndExpand" Spacing="-40" Margin="0,0,0,20">
+            <Button Image="LoginBttn.png" BackgroundColor="Transparent" Command="{Binding SwipingCommand}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                <Label Text="Don't have an account?" FontSize="20" />
+                <Label Text="Sign Up" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
+            </StackLayout>
+        </StackLayout>
+
+
+    </StackLayout>-->
+    <!--<StackLayout>
+       
+        <FlexLayout Direction="Column">
+            <Label Text="Login" Style="{StaticResource heading}" FlexLayout.AlignSelf="Center" />
+            <Image Source="Logo" Scale="0.6"/>
+            <Entry  Keyboard="Chat" Text="{Binding UserName}" Placeholder="Email" Style="{StaticResource entry}" Margin="25,0,25,0"/>
+            <Entry Placeholder="Password" IsPassword="True"   Text="{Binding Password}" Style="{StaticResource entry}" Margin="25,0,25,0"/>
+            <Button  Text="Forgot Password?" TextColor="#000000" FlexLayout.AlignSelf="End"  Margin="0,0,0,-10"
+                    BackgroundColor="Transparent"   Command="{Binding BindingContext.ForgotCommand,Source={x:Reference loginPageRef}}" />
+
+        </FlexLayout>
+
+        <FlexLayout BackgroundColor="Transparent" Direction="Column"  VerticalOptions="EndAndExpand"  Margin="0,0,0,30">
+            <Button Image="LoginBttn" Scale="1" 
+                    BackgroundColor="Transparent"
+                    Command="{Binding BindingContext.LoginCommand,Source={x:Reference loginPageRef}}"
+                    >
+                <Button.Triggers>
+                    <EventTrigger Event="Clicked">
+                        <local:ExpandButtonTriggerAction />
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Button  Image="InBtn" Scale="1"  
+                    BackgroundColor="Transparent"
+                                   Command="{Binding BindingContext.LinkedInCommand,Source={x:Reference loginPageRef}}"
+
+                    >
+                <Button.Triggers>
+                    <EventTrigger Event="Clicked">
+                        <local:ExpandButtonTriggerAction />
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+               
+
+        </FlexLayout>
+        
+        
+        <FlexLayout Direction="Row" Margin="0,0,0,30">
+            <Label Text="Don't have an account?" FontSize="20" />
+            <Label Text="Sign Up" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
+        </FlexLayout>
+
+    </StackLayout>-->
+
+</ContentPage>

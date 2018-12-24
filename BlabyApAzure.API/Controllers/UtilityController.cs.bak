@@ -1,0 +1,104 @@
+﻿using Blabyap.Common.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Http;
+using Blabyap.Common.Model;
+using BlabyApAzure.API.Models;
+using System.Threading.Tasks;
+
+namespace BlabyApAzure.API.Controllers
+{
+    public class UtilityController : ApiController
+    {
+        [HttpGet]
+        [Route("IndustryInfo")]
+        public async Task<List<FamilyData>> GetIndustryInfo()
+        {
+            IEnumerable<LookupInfo> Industries = await DocumentDBRepository<LookupInfo>.GetDatasAsync(u => u.Family == "Industry");// (u => u.UserMail == User.Identity.Name);
+
+            if (Industries == null)
+            {
+                return null;
+            }
+            if (Industries.Count() == 0)
+            {
+                return null;
+            }
+            LookupInfo entries = Industries.Last();
+
+            try
+            {
+                List<FamilyData> lstInds = new List<FamilyData>(entries.FamilyInfo);
+                return lstInds;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+        [HttpGet]
+        [Route("NationalityInfo")]
+        public async Task <List<FamilyData>> GetNationalityInfo()
+        {
+            IEnumerable<LookupInfo> Countries = await DocumentDBRepository<LookupInfo>.GetDatasAsync(u => u.Family == "Nationality");// (u => u.UserMail == User.Identity.Name);
+           
+            if (Countries == null)
+            {
+                return null;
+            }
+            if (Countries.Count() == 0)
+            {
+                return null;
+            }
+            LookupInfo cntries = Countries.Last();
+
+            try
+            {
+                List<FamilyData> lstCntry = new List<FamilyData>(cntries.FamilyInfo);
+                return lstCntry;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+
+           
+        }
+        [HttpGet]
+        [Route("SeniorityInfo")]
+        public List<CustomCaption> GetSeniorityInfo()
+        {
+            return new List<CustomCaption>();
+        }
+        [HttpGet]
+        [Route("ExpertiseInfo")]
+        public async Task<List<FamilyData>> GetExpertiseInfo()
+        {
+            IEnumerable<LookupInfo> Expertise = await DocumentDBRepository<LookupInfo>.GetDatasAsync(u => u.Family == "Expertise");// (u => u.UserMail == User.Identity.Name);
+
+            if (Expertise == null)
+            {
+                return null;
+            }
+            if (Expertise.Count() == 0)
+            {
+                return null;
+            }
+
+            LookupInfo entries = Expertise.Last();
+
+            try
+            {
+                List<FamilyData> lstExpertise = new List<FamilyData>(entries.FamilyInfo);
+                return lstExpertise;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+    }
+}

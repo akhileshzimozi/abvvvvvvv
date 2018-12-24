@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			  Title="{Binding Title}"
+			 BackgroundImage="bg" 
+			 NavigationPage.HasNavigationBar="True"
+			 x:Class="Blabyap.Views.MyCVPage"
+			 x:Name="myCVPageRef" 
+			 xmlns:local="clr-namespace:Blabyap.ViewModels"
+
+			 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+			 xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+			 xmlns:syncfusion1="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+			 xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"
+			 xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+			 xmlns:al="clr-namespace:AiForms.Layouts;assembly=AiForms.Layouts"
+			 xmlns:behaviors="clr-namespace:Blabyap.Controls"
+			 prism:ViewModelLocator.AutowireViewModel="True">
+
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<On Platform="iOS" Value="0,25,0,0" />
+		</OnPlatform>
+	</ContentPage.Padding>
+
+
+	<!--<ContentPage.Resources>
+	   
+
+			<ResourceDictionary>
+			--><!--Template Views starts here --><!-- 
+				<DataTemplate x:Key="defalutTemplate">
+				<ViewCell>
+					<StackLayout BackgroundColor="Aqua">
+						<Label Text="defalutTemplate"/>
+						<Label Text="Type"/>
+					</StackLayout>
+				</ViewCell>
+			</DataTemplate>
+			
+
+			<DataTemplate x:Key="type1Template">
+			  <ViewCell>
+				<Frame Grid.Row="0" Margin="15,-5,15,0" BackgroundColor="#FFFFFF">
+						<Grid RowSpacing="3">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+						   
+							<Label Grid.Row="0" Text="{Binding WorkViewModelItem.Heading}" Style="{StaticResource labelblack}"
+								   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+							<StackLayout Grid.Row="1">
+							   <Label Text="Current Company" Style="{StaticResource labelblack}"
+								  FontSize="Micro" TextColor="#FF5C4C"/>
+								<Entry Placeholder="Odegrs Berndtson" Text="{Binding WorkViewModelItem.CurrentCompany}"/>
+							</StackLayout>
+							<StackLayout Grid.Row="2">
+							   <Label Text="Job Title" Style="{StaticResource labelblack}"
+								  FontSize="Micro"  TextColor="#FF5C4C"/>
+								<Entry Placeholder="Partner" Text="{Binding WorkViewModelItem.JobTitle}"/>
+							</StackLayout>
+							<StackLayout Grid.Row="3" Spacing="5">
+							   <Label Text="Industry" Style="{StaticResource labelblack}"
+								  FontSize="Micro"  TextColor="#FF5C4C"/>
+							
+
+
+								<combobox:SfComboBox HeightRequest="40" x:Name="comboBoxi" DropDownItemHeight="50" 
+								DisplayMemberPath="Name"  SelectionChanged="ComboBoxi_SelectionChanged"		 Text="{Binding WorkViewModelItem.Industry}" DataSource="{Binding WorkViewModelItem.Industry}"/>
+
+							
+							</StackLayout>
+							<StackLayout Grid.Row="4" Spacing="5">
+							   <Label Text="Seniority" Style="{StaticResource labelblack}"
+								  FontSize="Micro"  TextColor="#FF5C4C"/>
+
+								<combobox:SfComboBox HeightRequest="40" x:Name="comboBoxd" DropDownItemHeight="50" 
+									IsEditableMode="true" AllowFiltering="true" TextHighlightMode="FirstOccurrence" HighlightedTextColor="Red" HighlightedTextFontAttributes="Bold"
+									 Text="{Binding WorkViewModelItem.SeniorityText}" DataSource="{Binding WorkViewModelItem.Seniority}"/>
+
+								--><!--<combobox:SfComboBox HeightRequest="40" x:Name="comboBoxs" DropDownItemHeight="50" 
+										 Text="{Binding WorkViewModelItem.SeniorityText}" DataSource="{Binding WorkViewModelItem.Seniority}"/>-->
+								<!--<Entry Placeholder="Senior" Text="{Binding WorkViewModelItem.Seniority}"/>--><!--
+							</StackLayout>                    
+						</Grid>
+				</Frame>
+			  </ViewCell>
+			</DataTemplate>
+			
+			<DataTemplate x:Key="type2Template">
+				<ViewCell>
+			   <Frame Grid.Row="1" Margin="15" BackgroundColor="#FFFFFF">
+				<Grid RowSpacing="5">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+				   
+					<Label Grid.Row="0" Text="{Binding OrganizationViewModelItem.Heading}" Style="{StaticResource labelblack}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+					<StackLayout Grid.Row="1">
+					   <Label Text="Organization 1" Style="{StaticResource labelblack}"
+						  FontSize="Micro"  TextColor="#FF5C4C"/>
+								<Entry Placeholder="The Gap Partnership" Text="{Binding OrganizationViewModelItem.Organization1}"/>
+					</StackLayout>
+					<StackLayout Grid.Row="2">
+					   <Label Text="Organization 2" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/>
+								<Entry Placeholder="Prudential Financial" Text="{Binding 
+									OrganizationViewModelItem.Organization2}"/>
+					</StackLayout>
+					<StackLayout Grid.Row="3">
+					   <Label Text="Organization 3" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/>
+								<Entry Placeholder="Iveco Fiat" Text="{Binding OrganizationViewModelItem.Organization3}"/>
+					</StackLayout>                    
+				</Grid>
+			</Frame>
+				</ViewCell>
+			</DataTemplate>
+			
+			<DataTemplate x:Key="type3Template">
+			 <ViewCell>
+			   <Frame Grid.Row="2" Margin="15" BackgroundColor="#FFFFFF">
+				<Grid RowSpacing="5">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+				   
+					<Label Grid.Row="0" Text="{Binding OtherViewModelItem.Heading}" Style="{StaticResource labelblack}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+					<StackLayout Grid.Row="1" Spacing="5">
+					   <Label Text="Nationality" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/>
+
+
+
+
+
+								<combobox:SfComboBox HeightRequest="40" x:Name="comboBoxn" DropDownItemHeight="50" 
+									DisplayMemberPath="Name"  Text="{Binding OtherViewModelItem.NationalityText}" DataSource="{Binding OtherViewModelItem.Nationality}"/>
+
+								--><!--<Entry Placeholder="Brazil" Text="{Binding OtherViewModelItem.Nationality}"/>--><!--
+					</StackLayout>
+					<StackLayout Grid.Row="2">
+					   <Label Text="Education" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/>
+								<Entry Placeholder="Education" Text="{Binding 
+									OtherViewModelItem.Education}"/>
+					</StackLayout>
+							--><!-- No more statups . Client removed from scope-->
+					<!--<StackLayout Grid.Row="3">
+					   <Label Text="Startups" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/> 
+						 <StackLayout Orientation="Horizontal">
+							 <Label Text=" {Binding OtherViewModelItem.Enterpreneur}"/>
+							 <Label Text="|" TextColor="#FF5C4C" />
+							 <Label Text=" {Binding OtherViewModelItem.Investor}"/>
+						 </StackLayout>       
+					</StackLayout>   --><!--                 
+				</Grid>
+			</Frame>
+				</ViewCell>
+			</DataTemplate>
+			
+			<DataTemplate x:Key="type4Template">
+				<ViewCell>
+						<Frame Grid.Row="3" Margin="15" BackgroundColor="#FFFFFF">
+						--><!--<Grid RowSpacing="5">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								--><!--<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>--><!--
+							</Grid.RowDefinitions>
+								
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>--><!--
+						<StackLayout Spacing="10">
+						   
+							<Label  Text="{Binding ExpertiseViewModelItem.Heading}"  Style="{StaticResource labelblack}"
+								   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+							
+
+
+
+							<combobox:SfComboBox HeightRequest="60" x:Name="comboBoxe" DropDownItemHeight="50"  MultiSelectMode="Token"
+								DisplayMemberPath="Name"  	ShowClearButton="False" FocusChanged="ComboBoxe_FocusChanged" Focused="ComboBoxe_Focused" 	TokensWrapMode="Wrap" Text="{Binding ExpertiseViewModelItem.ExpertiseText}" DataSource="{Binding ExpertiseViewModelItem.Expertise }">
+								<combobox:SfComboBox.TokenSettings>
+									<combobox:TokenSettings FontSize="16" BackgroundColor="Black" 
+										TextColor="White" SelectedBackgroundColor="#ffffe0" 
+										DeleteButtonColor="Color.Pink" IsCloseButtonVisible="true" 
+										CornerRadius="15" >
+									</combobox:TokenSettings>
+								</combobox:SfComboBox.TokenSettings>
+							</combobox:SfComboBox>
+
+
+							
+						</StackLayout>
+						--><!--<Button Grid.Row="1" Grid.Column="0" Text="{Binding ExpertiseViewModelItem.Leadership}" FontSize="Micro" TextColor="#FF5C4C"
+									   BackgroundColor="#000000"  /> 
+							   <Button  Grid.Row="1" Grid.Column="1" Text="{Binding ExpertiseViewModelItem.Marketing}" FontSize="Micro" TextColor="#FF5C4C"
+									   BackgroundColor="#000000" BorderColor="#000000"/> 
+							   <Button Grid.Row="1" Grid.Column="2"  Text="{Binding ExpertiseViewModelItem.AI}" FontSize="Micro" TextColor="#000000" 
+									   BackgroundColor="Transparent" BorderColor="#000000" BorderWidth="1"/> 
+								
+							   <Button Grid.Row="2" Grid.Column="0" Text="{Binding ExpertiseViewModelItem.Startups}" FontSize="Micro" TextColor="#000000"
+									   BackgroundColor="Transparent"  BorderColor="#000000"  BorderWidth="1" /> 
+							   <Button  Grid.Row="2" Grid.Column="1" Text="{Binding ExpertiseViewModelItem.IoT}" FontSize="Micro" TextColor="#000000"
+									   BackgroundColor="Transparent" BorderColor="#000000"  BorderWidth="1"/> 
+							   <Button Grid.Row="2" Grid.Column="2"  Text="{Binding ExpertiseViewModelItem.Blockchain}" FontSize="Micro" TextColor="#000000" 
+									   BackgroundColor="Transparent" BorderColor="#000000"  BorderWidth="1"/>
+								
+							   <Button Grid.Row="3" Grid.Column="0" Text="{Binding ExpertiseViewModelItem.Education}" FontSize="Micro" TextColor="#000000"
+									   BackgroundColor="Transparent" BorderColor="#000000"  BorderWidth="1" /> 
+							   <Button  Grid.Row="3" Grid.Column="1" Text="{Binding ExpertiseViewModelItem.Finance}" FontSize="Micro" TextColor="#FF5C4C"
+									   BackgroundColor="#000000" BorderColor="#000000"  BorderWidth="1"/> 
+								
+							   <Button Grid.Row="3" Grid.Column="2"  Text="More" FontSize="Micro" TextColor="#FFFFFF" 
+									   BackgroundColor="#000000"  BorderWidth="1" />-->
+						   
+						<!--</Grid>--><!--
+					</Frame> 
+				</ViewCell>
+			</DataTemplate>
+			
+			<DataTemplate x:Key="type5Template">
+				<ViewCell>
+				<Frame Grid.Row="4" Margin="15" BackgroundColor="#FF5C4C" Opacity=".9">
+				<Grid RowSpacing="5">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+				   
+						<StackLayout Grid.Row="0" BackgroundColor="#FF5C4C" >
+						  <Label  Text="{Binding AboutYouViewModelItem.Heading}" Style="{StaticResource labelwhite}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+								<Label  Text= "Tell us more about you (27 characters left)"   Style="{StaticResource labelblack}"
+						  FontSize="Micro" HorizontalOptions="Start" VerticalOptions="Start"/>
+							   <Image Source="lineShape" Aspect="AspectFill" HorizontalOptions="Center"/>
+						</StackLayout>
+
+					<StackLayout Grid.Row="1">
+								<Editor Placeholder="Enter Here" Text="{Binding 
+									AboutYouViewModelItem.Description}"
+							 HorizontalOptions="FillAndExpand" 
+							   VerticalOptions="FillAndExpand"/>
+					</StackLayout>
+					
+				</Grid>
+			</Frame>
+				</ViewCell>
+			</DataTemplate>
+
+			--><!--Template Views end here -->
+
+			<!--Template TemplateSelector --><!--
+			<local:MyCVItemTemplateSelector x:Key="myCVItemTemplateSelector"
+											DefaultTemplate="{StaticResource defalutTemplate}"
+											
+											
+											Type1Template="{StaticResource type1Template}"
+											Type2Template="{StaticResource type2Template}"
+											Type3Template="{StaticResource type3Template}"
+											Type4Template="{StaticResource type4Template}"
+											Type5Template="{StaticResource type5Template}"/>
+
+		</ResourceDictionary>
+
+	</ContentPage.Resources>-->
+   
+
+	<!--Scroll View inside list view give bad performance-->
+
+	<ScrollView Margin="10">
+	  <FlexLayout Direction="Column">
+
+		<Frame  Margin="15,-5,15,0" BackgroundColor="#FFFFFF">
+			<Grid RowSpacing="3">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+
+				<Label Grid.Row="0" Text="Work" Style="{StaticResource labelblack}"
+								   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+				<StackLayout Grid.Row="1">
+					<Label Text="Current Company" Style="{StaticResource labelblack}"
+								  FontSize="Micro" TextColor="#FF5C4C"/>
+					<Entry Placeholder="Odegrs Berndtson" Text="{Binding currentCompany}"/>
+				</StackLayout>
+				<StackLayout Grid.Row="2">
+					<Label Text="Job Title" Style="{StaticResource labelblack}"
+								  FontSize="Micro"  TextColor="#FF5C4C"/>
+					<Entry Placeholder="Partner" Text="{Binding jobTitle}"/>
+				</StackLayout>
+				<StackLayout Grid.Row="3" Spacing="5">
+					<Label Text="Industry" Style="{StaticResource labelblack}"
+								  FontSize="Micro"  TextColor="#FF5C4C"/>
+
+
+
+						<autocomplete:SfAutoComplete HeightRequest="40"  
+										TextHighlightMode="MultipleOccurrence" HighlightedTextColor="Red" HighlightedTextFontAttributes="Bold" SuggestionMode="Contains"			Text="{Binding industry}" DisplayMemberPath="Name" SelectionChanged="SfAutoComplete_SelectionChanged"
+										NoResultsFoundText="No result found"	Watermark="Select Industry"	ShowClearButton="False"	DataSource="{Binding IndustryCollection}" IsSelectedItemsVisibleInDropDown="false" />
+					</StackLayout>
+				<StackLayout Grid.Row="4" Spacing="5">
+					<Label Text="Seniority" Style="{StaticResource labelblack}"
+								  FontSize="Micro"  TextColor="#FF5C4C"/>
+
+						<autocomplete:SfAutoComplete HeightRequest="40"  DropDownItemHeight="50" ShowClearButton="False"
+					NoResultsFoundText="No result found" Watermark="Select Seniority"		TextHighlightMode="MultipleOccurrence" HighlightedTextColor="Red" HighlightedTextFontAttributes="Bold" SuggestionMode="Contains"	Text="{Binding seniority}" DataSource="{Binding SeniorityCollection}"  IsSelectedItemsVisibleInDropDown="false"/>
+					</StackLayout>
+			</Grid>
+		</Frame>
+
+
+		<Frame  Margin="15" BackgroundColor="#FFFFFF">
+			<Grid RowSpacing="5">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+
+					<Label Grid.Row="0" Text="Other Organizations" Style="{StaticResource labelblack}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+				<StackLayout Grid.Row="1">
+					<Label Text="Organization 1" Style="{StaticResource labelblack}"
+						  FontSize="Micro"  TextColor="#FF5C4C"/>
+					<Entry Placeholder="The Gap Partnership" Text="{Binding organization1}"/>
+				</StackLayout>
+				<StackLayout Grid.Row="2">
+					<Label Text="Organization 2" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/>
+					<Entry Placeholder="Prudential Financial" Text="{Binding 
+									organization2}"/>
+				</StackLayout>
+				<StackLayout Grid.Row="3">
+					<Label Text="Organization 3" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/>
+					<Entry Placeholder="Iveco Fiat" Text="{Binding organization3}"/>
+				</StackLayout>
+			</Grid>
+		</Frame>
+
+
+		<Frame  Margin="15" BackgroundColor="#FFFFFF">
+			<Grid RowSpacing="5">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+
+				<Label Grid.Row="0" Text="Other" Style="{StaticResource labelblack}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+					<StackLayout Grid.Row="1" Spacing="5">
+					<Label Text="Nationality" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/>
+
+
+
+
+
+						<autocomplete:SfAutoComplete HeightRequest="40"  DropDownItemHeight="50" DisplayMemberPath="Name"
+								ShowClearButton="False"		TextHighlightMode="MultipleOccurrence" HighlightedTextColor="Red" HighlightedTextFontAttributes="Bold"  SuggestionMode="Contains"		 IsSelectedItemsVisibleInDropDown="false"     Text="{Binding nationality}"
+										Watermark="Select Country"		NoResultsFoundText="No result found"			 DataSource="{Binding NationalityCollection}"/>
+					</StackLayout>
+				<StackLayout Grid.Row="2">
+					<Label Text="Education" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/>
+					<Entry Placeholder="Education" Text="{Binding 
+									education}"/>
+				</StackLayout>
+				<!-- No more statups . Client removed from scope-->
+				<!--<StackLayout Grid.Row="3">
+					   <Label Text="Startups" Style="{StaticResource labelblack}"
+						  FontSize="Micro" TextColor="#FF5C4C"/> 
+						 <StackLayout Orientation="Horizontal">
+							 <Label Text=" {Binding OtherViewModelItem.Enterpreneur}"/>
+							 <Label Text="|" TextColor="#FF5C4C" />
+							 <Label Text=" {Binding OtherViewModelItem.Investor}"/>
+						 </StackLayout>       
+					</StackLayout>   -->
+			</Grid>
+		</Frame>
+
+
+	   
+		<Frame  Margin="15" BackgroundColor="#FFFFFF">
+				<!--<Grid RowSpacing="5">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								-->
+				<!--<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>-->
+				<!--
+							</Grid.RowDefinitions>
+								
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>-->
+				<StackLayout Spacing="10">
+
+					<Label  Text="Expertise"  Style="{StaticResource labelblack}"
+								   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+
+
+					<autocomplete:SfAutoComplete HeightRequest="80" x:Name="autoComplete" 
+										TextHighlightMode="MultipleOccurrence" HighlightedTextColor="Red" 
+							Watermark="Select multiple expertise"			ShowClearButton="False"    HighlightedTextFontAttributes="Bold" SuggestionMode="Contains"		 MultiSelectMode="Token" DisplayMemberPath="Name"
+										NoResultsFoundText="No result found or first select Industry"			  IsSelectedItemsVisibleInDropDown="false" ItemTemplate="{Binding exp}"  SelectedItem="{Binding myExpertise}"  TokensWrapMode="Wrap" DataSource="{Binding ExpertiseCollection, Mode=TwoWay}">
+						<autocomplete:SfAutoComplete.TokenSettings>
+							<autocomplete:TokenSettings  FontSize="16" BackgroundColor="Black" 
+										TextColor="White" SelectedBackgroundColor="#ffffe0" 
+										DeleteButtonColor="Color.Pink" IsCloseButtonVisible="true" 
+										CornerRadius="15">
+								
+							</autocomplete:TokenSettings>
+						</autocomplete:SfAutoComplete.TokenSettings>
+					</autocomplete:SfAutoComplete>
+
+				  
+
+				</StackLayout>
+			
+			</Frame>
+
+		<syncfusion1:SfBusyIndicator  x:Name="busyIndicator" Title="Loading..." 
+									 Margin="90,0,0,0"    IsVisible="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" />
+
+
+			<Frame  Margin="15" BackgroundColor="#FF5C4C" Opacity=".9">
+				<Grid RowSpacing="5">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+
+					<StackLayout Grid.Row="0" BackgroundColor="#FF5C4C" >
+						<Label  Text="About You" Style="{StaticResource labelwhite}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+						<Label  Text= "{Binding AboutUsChar}"   Style="{StaticResource labelblack}"
+						  FontSize="Micro" HorizontalOptions="Start" VerticalOptions="Start" >
+						   
+						</Label>
+						<Image Source="lineShape" Aspect="AspectFill" HorizontalOptions="Center"/>
+					</StackLayout>
+
+					<StackLayout Grid.Row="1">
+						<Editor x:Name="editor" Placeholder="Enter Here" Text="{Binding 
+									aboutYou}" AutoSize="TextChanges"
+							 HorizontalOptions="FillAndExpand"  
+							   VerticalOptions="FillAndExpand">
+
+							<Editor.Behaviors>
+								<behaviors:EditorLengthValidatorBehavior MaxLength="50"  />
+							</Editor.Behaviors>
+
+						</Editor>
+					</StackLayout>
+
+				</Grid>
+			</Frame>
+
+			<Button Grid.Row="5" Image="GotoDisc"
+							BackgroundColor="Transparent"  
+					Command="{Binding BindingContext.GotoDiscoveryCommand,Source={x:Reference myCVPageRef}}"
+					/>
+
+
+
+
+
+		</FlexLayout>
+
+
+	</ScrollView>
+	
+	
+	
+
+</ContentPage>
+

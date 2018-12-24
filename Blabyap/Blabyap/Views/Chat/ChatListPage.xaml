@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="Blabyap.Views.ChatListPage"
+             BackgroundImage="bg" 
+             NavigationPage.HasNavigationBar="False"
+             x:Name="chatListRef"
+             xmlns:CustomViewCell="clr-namespace:Blabyap.Controls"
+             >
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,25,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    
+    <Grid RowSpacing="10">
+    <Grid.RowDefinitions >
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="8.8*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+                
+            <Button  Grid.Column="0" Image="back"
+               BackgroundColor="Transparent" 
+                    Command="{Binding BindingContext.PreviousCommand,Source={x:Reference chatListRef}}"
+                     >
+                 <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,-45,0,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Button.Margin>  
+             </Button>
+            
+            <Label Grid.Column="1" Text="Chat" Style="{StaticResource heading}" />
+            
+            <Button  Grid.Column="2" Image="Shape" Scale=".7"
+               BackgroundColor="Transparent">
+                 <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="10,-45,0,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Button.Margin>  
+             </Button>
+        </Grid>
+        
+        <Grid Grid.Row="1" Margin="10,-40,10,0" 
+              HorizontalOptions="Start" VerticalOptions="Start">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+            <SearchBar Grid.Row="0" BackgroundColor="Transparent"/>
+            <ListView Grid.Row="1" ItemsSource="{Binding ChatModelList}" 
+                      RowHeight="105" SeparatorColor="Transparent"
+                      BackgroundColor="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <CustomViewCell:ExtendedViewCell SelectedBackgroundColor="Transparent" >
+                                <ViewCell.View>
+                        
+                            <Frame Margin="10" BackgroundColor="#ffffff">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="7*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                               <Image Grid.Column="0" Source="{Binding ImageUrl}" />
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding Description}"/>
+                                </StackLayout>
+                                <Image Grid.Column="2" Source="{Binding ImageIcon}" />
+                            </Grid>
+                           </Frame>
+                                </ViewCell.View>
+                      
+                        </CustomViewCell:ExtendedViewCell>
+                  
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+       
+       
+   </Grid>
+   
+   
+</ContentPage>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 Title="{Binding Title}"
+			 x:Class="Blabyap.Views.SwipePage"
+			 xmlns:swipecards="clr-namespace:SwipeCards.Controls;assembly=SwipeCards.Controls"
+			 NavigationPage.HasNavigationBar="False" 
+			BackgroundImage="bg" 
+			 xmlns:local="clr-namespace:Blabyap.ViewModels"
+			 x:Name="swipePageRef"
+			 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+			 xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+			 xmlns:syncfusion1="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+			 prism:ViewModelLocator.AutowireViewModel="True" 
+			
+			 
+			 >
+
+<ContentPage.Padding>
+	<OnPlatform x:TypeArguments="Thickness">
+		<On Platform="iOS" Value="0,25,0,0" />
+	</OnPlatform>
+</ContentPage.Padding>
+
+
+<Grid RowSpacing="0" BackgroundColor="Transparent">
+	<Grid.RowDefinitions >
+		<RowDefinition Height="40"/>
+		<RowDefinition Height="*"/>
+	</Grid.RowDefinitions>
+
+	<Grid Grid.Row="0">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="6*"/>
+			<ColumnDefinition Width="2*"/>
+		</Grid.ColumnDefinitions>
+
+		<Button  Grid.Column="0" Image="back"
+			   BackgroundColor="Transparent" 
+					Command="{Binding BindingContext.PreviousCommand,Source={x:Reference swipePageRef}}"
+					>
+			<Button.Margin>
+				<OnPlatform x:TypeArguments="Thickness">
+					<On Platform="iOS" Value="10,-45,0,0" />
+					<On Platform="Android" Value="-20,10,0,0" />
+					<On Platform="UWP" Value="20,30,20,20" />
+				</OnPlatform>
+			</Button.Margin>
+		</Button>
+
+		<Label Grid.Column="1" Text="Swipe" Style="{StaticResource heading}" Margin="0,5,0,0" />
+
+		<Button  Grid.Column="2" Image="msgicon" Scale=".7"
+			   BackgroundColor="Transparent"
+					Command="{Binding BindingContext.ChatCommand,Source={x:Reference swipePageRef}}"
+					 >
+			<Button.Margin>
+				<OnPlatform x:TypeArguments="Thickness">
+					<On Platform="iOS" Value="10,-45,0,0" />
+					<On Platform="Android" Value="-20,10,0,0" />
+					<On Platform="UWP" Value="20,30,20,20" />
+				</OnPlatform>
+			</Button.Margin>
+		</Button>
+	</Grid>
+	<Grid Grid.Row="1">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="55"/>
+		</Grid.RowDefinitions>
+
+
+
+			<syncfusion1:SfBusyIndicator  x:Name="busyIndicator" Title="Loading..." Grid.Row="0"  IsVisible="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" />
+			<swipecards:CardStackView Grid.Row="0"
+					x:Name="CardStackView" 
+					ItemsSource="{Binding SwipePageItemList}" SwipedRightCommand="{Binding SwipeRightCommand}" 
+										  SwipedLeftCommand="{Binding SwipeLeftCommand}">
+			   
+
+					<swipecards:CardStackView.ItemTemplate>
+
+						<DataTemplate>
+
+					   
+							<StackLayout Spacing="2">
+								
+								<Grid ColumnSpacing="40">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Image Grid.Column="0"  Source="{Binding PersonalViewModelItem.ProfileImage}" 
+								   HorizontalOptions="Start"/>
+									<StackLayout Grid.Column="1" HorizontalOptions="Start"  VerticalOptions="StartAndExpand">
+									<StackLayout Orientation="Horizontal" Spacing="0">
+											<Label Text="{Binding PersonalViewModelItem.Name}" 
+									   FontSize="Medium" TextColor="#000000"/>
+										<Label Text="," 
+									   FontSize="Medium" TextColor="#000000"/>
+										<Label Text="{Binding PersonalViewModelItem.Birthday}" 
+									   FontSize="Medium" TextColor="#000000" Margin="10,0,0,0"/>
+									</StackLayout>
+									<Label Text="{Binding PersonalViewModelItem.Designation}"
+										TextColor="#000000"/>
+										<StackLayout Orientation="Horizontal" Spacing="10">
+											<Image Source="locationIcon" />
+											<Label Text="{Binding PersonalViewModelItem.Distance}" TextColor="Red" FontAttributes="Bold"/>
+										</StackLayout>
+									</StackLayout>
+								</Grid>
+
+							<Grid RowSpacing="5">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="32"/>
+									<RowDefinition Height="32"/>
+									<RowDefinition Height="32"/>
+								</Grid.RowDefinitions>
+
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+
+
+								<syncfusion:SfListView x:Name="listView" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Grid.Column="0"
+							  ItemsSource="{Binding ExperienceViewModelItem.ExpertiseCollection}" SelectionMode="Multiple" SelectionBackgroundColor="Black">
+									<syncfusion:SfListView.LayoutManager>
+										<syncfusion:GridLayout SpanCount = "3"/>
+									</syncfusion:SfListView.LayoutManager>
+									<syncfusion:SfListView.ItemTemplate>
+										<DataTemplate>
+											<FlexLayout AlignContent="SpaceBetween">
+											<Button Text="{Binding Name}" BorderRadius="20" Margin="3" FontSize="10"  TextColor="Black" BackgroundColor="Pink" BorderColor="Black"/>
+											</FlexLayout>
+										</DataTemplate>
+									</syncfusion:SfListView.ItemTemplate>
+								</syncfusion:SfListView>
+							</Grid>
+
+							<!--<Frame Margin="0" BackgroundColor="#FF5C4C" Opacity=".5">-->
+							<StackLayout HorizontalOptions="Start" BackgroundColor="#FF5C4C"  >
+									<Label Text="{Binding MatchAboutYouViewModelItem.Description}" HorizontalOptions="Start" 
+							   HorizontalTextAlignment="Start"
+							   TextColor="#000000"/>
+									<Label Text="More..." TextColor="#000000"/>
+								</StackLayout>
+							<!--</Frame>-->
+							<Frame  BackgroundColor="#FFFFFF" BorderColor="#707070" Margin="0">
+								<StackLayout Spacing="5">
+								
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="1*"/>
+											<ColumnDefinition Width="2.2*"/>
+											<ColumnDefinition Width="7*"/>
+										</Grid.ColumnDefinitions>
+										<Image Grid.Column="0" Source="industryIcon" HorizontalOptions="Start"/>
+										<Label Grid.Column="1" Text="Industry" TextColor="#ff5c4c" FontSize="Micro"  HorizontalOptions="Center"/>
+										<Label Grid.Column="2" Text="{Binding OtherPersonalInfoViewModelItem.Industry}" 
+									   TextColor="#000000" HorizontalOptions="End"  FontSize="Micro" 
+									   LineBreakMode="WordWrap"/>
+
+									</Grid>
+								
+									<!--<Frame  BackgroundColor="#FFFFFF" BorderColor="#707070">-->
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="1.2*"/>
+											<ColumnDefinition Width="3*"/>
+											<ColumnDefinition Width="7*"/>
+										</Grid.ColumnDefinitions>
+										<Image Grid.Column="0" Source="organizationIcon" HorizontalOptions="Start"/>
+										<Label Grid.Column="1" Text="Organization" TextColor="#ff5c4c" FontSize="Micro"  HorizontalOptions="Center"/>
+										<Label Grid.Column="2" Text="{Binding OtherPersonalInfoViewModelItem.Organization}" 
+									   TextColor="#000000" HorizontalOptions="End"  FontSize="Micro" 
+									   HorizontalTextAlignment="End" LineBreakMode="WordWrap"/>
+									</Grid>
+
+								<!--</Frame>
+								<Frame  BackgroundColor="#FFFFFF" BorderColor="#707070" Margin="0">-->
+									<Grid >
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="1*"/>
+											<ColumnDefinition Width="2.2*"/>
+											<ColumnDefinition Width="7*"/>
+										</Grid.ColumnDefinitions>
+										<Image Grid.Column="0" Source="educationIcon" HorizontalOptions="Start"/>
+										<Label Grid.Column="1" Text="Education" TextColor="#ff5c4c" FontSize="Micro" HorizontalOptions="Center"/>
+										<Label Grid.Column="2" Text="{Binding OtherPersonalInfoViewModelItem.Education}"
+									   TextColor="#000000" HorizontalOptions="End"  FontSize="Micro" 
+									  HorizontalTextAlignment="End" />
+									</Grid>
+
+								
+								
+							</StackLayout>
+
+							</Frame>
+						</StackLayout>
+
+
+
+
+					</DataTemplate>
+				 </swipecards:CardStackView.ItemTemplate>
+
+
+				</swipecards:CardStackView>
+			
+
+			<Grid Grid.Row="1" >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<Button Grid.Column="0" HorizontalOptions="Center" Image="passbutton" BackgroundColor="Transparent"
+					Command="{Binding BindingContext.SwipeLeftCommand,Source={x:Reference swipePageRef}}"
+					/>
+			<Button HorizontalOptions="Center"  Grid.Column="1" Image="supermatchbtn" BackgroundColor="Transparent"
+					Command="{Binding BindingContext.SuperMatchCommand,Source={x:Reference swipePageRef}}"
+					/>
+			<Button  Grid.Column="2" Image="meetbtn" BackgroundColor="Transparent" HorizontalOptions="Center"
+					Command="{Binding BindingContext.SwipeRightCommand,Source={x:Reference swipePageRef}}"
+					/>
+		</Grid>
+
+	</Grid>
+</Grid>
+</ContentPage>

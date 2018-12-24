@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                Title="{Binding Title}"
+             BackgroundImage="bg" 
+             NavigationPage.HasNavigationBar="True"
+             x:Class="Blabyap.Views.PremiumPage"
+             
+             x:Name="premiumPageRef">
+             
+             
+     <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,25,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    
+    <Grid RowSpacing="10">
+    <Grid.RowDefinitions >
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="8.8*"/>
+        </Grid.RowDefinitions>
+        
+ 
+       
+   </Grid>
+</ContentPage>

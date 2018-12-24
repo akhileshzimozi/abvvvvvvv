@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blabyap.Common.Model", "Blabyap\Blabyap.Common.Model\Blabyap.Common.Model.csproj", "{1FD6BE56-0C69-4751-A59B-C26A46920F23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlabyApAzure.API", "BlabyApAzure.API\BlabyApAzure.API.csproj", "{57647EC1-424E-4B61-89A6-29138A174F57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FD6BE56-0C69-4751-A59B-C26A46920F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD6BE56-0C69-4751-A59B-C26A46920F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD6BE56-0C69-4751-A59B-C26A46920F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD6BE56-0C69-4751-A59B-C26A46920F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57647EC1-424E-4B61-89A6-29138A174F57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57647EC1-424E-4B61-89A6-29138A174F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57647EC1-424E-4B61-89A6-29138A174F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57647EC1-424E-4B61-89A6-29138A174F57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF891262-C374-4E2D-9245-A1CF4C577000}
+	EndGlobalSection
+EndGlobal

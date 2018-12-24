@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="Blabyap.Views.AppTour2Page"
+              BackgroundColor="#FF5C4C"
+             x:Name="tourPage2Ref"
+             NavigationPage.HasNavigationBar="False"
+             >
+     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8.8*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.RowSpan="2" Source="bg" Aspect="Fill"/>
+        <Image Grid.Row="0" Grid.RowSpan="2" Source="Canvas2" Aspect="AspectFit"/>
+        
+        <Button Grid.Row="1" Image="getstartedbtn" BackgroundColor="Transparent"
+            Command="{Binding BindingContext.GetStartedCommand,Source={x:Reference tourPage2Ref}}"
+                />
+    </Grid>       
+</ContentPage>

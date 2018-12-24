@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 Title="{Binding Title}"
+			 BackgroundImage="bg" 
+			 NavigationPage.HasNavigationBar="True"
+			 x:Class="Blabyap.Views.DiscoveryPage"
+			 xmlns:local="clr-namespace:Blabyap.ViewModels"
+			 xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+			 xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+			 xmlns:syncfusion1="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+			 x:Name="discoveryRef">
+	   
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<On Platform="iOS" Value="0,25,0,0" />
+		</OnPlatform>
+	</ContentPage.Padding>
+
+
+	<!--<ContentPage.Resources>
+		<ResourceDictionary>
+			--><!--Template Views starts here --><!--
+			
+			<DataTemplate x:Key="defalutTemplate">
+				<ViewCell>
+					<StackLayout BackgroundColor="Aqua">
+						<Label Text="defalutTemplate"/>
+						<Label Text="Type"/>
+					</StackLayout>
+				</ViewCell>
+			</DataTemplate>
+			
+			<DataTemplate x:Key="type1Template">
+			  <ViewCell>
+			   <Frame Margin="15" BackgroundColor="#FFFFFF">
+				<Grid RowSpacing="5">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+						
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="5*"/>
+						<ColumnDefinition Width="5*"/>
+					</Grid.ColumnDefinitions>    
+				   
+					<Label Grid.Row="0" Text="{Binding SeniorityViewModelItem.Heading}" Grid.ColumnSpan="3" Style="{StaticResource labelblack}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+							--><!--<autocomplete:SfAutoComplete HeightRequest="100" Margin="10"
+									 AutoCompleteMode="SuggestAppend" Watermark="Enter Seniority here" NoResultsFoundText="No Results Found"
+								 Keyboard="Chat"   
+
+									  Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"   SuggestionMode="Contains"
+									 x:Name="autoCompleteSeniority" DropDownItemHeight="50"   DisplayMemberPath="Name" ImageMemberPath="Image"
+														 MultiSelectMode="Token"  TokensWrapMode="Wrap" DataSource="{Binding SeniorityViewModelItem.Seniority}">
+
+
+							</autocomplete:SfAutoComplete>--><!--
+							<combobox:SfComboBox HeightRequest="60" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" x:Name="comboBoxe" DropDownItemHeight="50"  MultiSelectMode="Token"
+									DisplayMemberPath="Name"	ShowClearButton="False"	TokensWrapMode="Wrap" DataSource="{Binding SeniorityViewModelItem.Seniority}">
+								<combobox:SfComboBox.TokenSettings>
+									<combobox:TokenSettings FontSize="16" BackgroundColor="Black" 
+										TextColor="White" SelectedBackgroundColor="#ffffe0" 
+										DeleteButtonColor="Color.Pink" IsCloseButtonVisible="true" 
+										CornerRadius="15">
+									</combobox:TokenSettings>
+								</combobox:SfComboBox.TokenSettings>
+							</combobox:SfComboBox>
+
+
+							--><!--<Button Grid.Row="1" Grid.Column="0" Text="{Binding SeniorityViewModelItem.Student}" 
+							   FontSize="Micro" TextColor="#FF5C4C"
+							   BackgroundColor="#000000" BorderWidth="1"/> 
+					   <Button  Grid.Row="1" Grid.Column="1" Text="{Binding SeniorityViewModelItem.Operational}" FontSize="Micro" TextColor="#FF5C4C"
+							   BackgroundColor="#000000" BorderColor="#000000" BorderWidth="1"/> 
+						
+					   <Button Grid.Row="2" Grid.Column="0" Text="{Binding SeniorityViewModelItem.Supervisory}" FontSize="Micro" TextColor="#000000"
+							   BackgroundColor="Transparent"  BorderColor="#000000"  BorderWidth="1" /> 
+					   <Button  Grid.Row="2" Grid.Column="1" Text="{Binding SeniorityViewModelItem.MiddleMgt}" FontSize="Micro" TextColor="#000000"
+							   BackgroundColor="Transparent" BorderColor="#000000"  BorderWidth="1"/> 
+						
+					   <Button Grid.Row="3" Grid.Column="0" Text="{Binding SeniorityViewModelItem.SeniorMgt}" FontSize="Micro" TextColor="#000000"
+							   BackgroundColor="Transparent" BorderColor="#000000"  BorderWidth="1" /> 
+					   <Button  Grid.Row="3" Grid.Column="1" Text="{Binding SeniorityViewModelItem.CSuite}" FontSize="Micro" TextColor="#FF5C4C"
+							   BackgroundColor="#000000" BorderColor="#000000"  BorderWidth="1"/>--><!-- 
+			
+				</Grid>
+			</Frame> 
+			  </ViewCell>
+			</DataTemplate>
+			
+			<DataTemplate x:Key="type2Template">
+				<ViewCell>
+			   <Frame Margin="15" BackgroundColor="#FFFFFF">
+						<Grid>
+					<Grid RowSpacing="5">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+									<RowDefinition Height="Auto"/>
+
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+					</Grid>
+					<Label Grid.Row="0" Text="{Binding IndustriesViewModelItem.Heading}" 
+						   Style="{StaticResource labelblack}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+		   
+
+
+							<combobox:SfComboBox HeightRequest="60" x:Name="comboBoxe" DropDownItemHeight="50" 
+						DisplayMemberPath="Name"			SelectionChanged="ComboBoxe_SelectionChanged"	 DataSource="{Binding IndustriesViewModelItem.Industry}"/>
+							--><!--<Label Grid.Row="1" Text="{Binding IndustriesViewModelItem.Industries}" Style="{StaticResource labelblack}"
+						HorizontalOptions="Start" VerticalOptions="Start"/>--><!--
+						</Grid>
+					</Frame>
+				</ViewCell>
+			</DataTemplate>
+			
+			<DataTemplate x:Key="type3Template">
+				<ViewCell>
+						<Frame Margin="15" BackgroundColor="#FFFFFF">
+						<Grid RowSpacing="5">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="*"/>
+							</Grid.RowDefinitions>
+
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+
+							<Label Grid.Row="0" Text="{Binding ExpertiseViewModelItem.Heading}" Grid.ColumnSpan="3" Style="{StaticResource labelblack}"
+								   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+							<combobox:SfComboBox  x:Name="comboBoxf" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" DropDownItemHeight="50"  MultiSelectMode="Token"
+									DisplayMemberPath="Name"	ShowClearButton="False" TokensWrapMode="Wrap"	 DataSource="{Binding ExpertiseViewModelItem.Expertise}">
+								<combobox:SfComboBox.TokenSettings>
+									<combobox:TokenSettings FontSize="16" BackgroundColor="Black" 
+										TextColor="White" SelectedBackgroundColor="#ffffe0" 
+										DeleteButtonColor="Color.Pink" IsCloseButtonVisible="true" 
+										CornerRadius="15">
+									</combobox:TokenSettings>
+								</combobox:SfComboBox.TokenSettings>
+							</combobox:SfComboBox>
+						   
+							--><!--<Button Grid.Row="1" Grid.Column="0" Text="{Binding ExpertiseViewModelItem.Leadership}" FontSize="Micro" TextColor="#FF5C4C"
+									   BackgroundColor="#000000" /> 
+							   <Button  Grid.Row="1" Grid.Column="1" Text="{Binding ExpertiseViewModelItem.Marketing}" FontSize="Micro" TextColor="#FF5C4C"
+									   BackgroundColor="#000000" BorderColor="#000000"/> 
+							   <Button Grid.Row="1" Grid.Column="2"  Text="{Binding ExpertiseViewModelItem.AI}" FontSize="Micro" TextColor="#000000" 
+									   BackgroundColor="Transparent" BorderColor="#000000" BorderWidth="1"/> 
+								
+							   <Button Grid.Row="2" Grid.Column="0" Text="{Binding ExpertiseViewModelItem.Startups}" FontSize="Micro" TextColor="#000000"
+									   BackgroundColor="Transparent"  BorderColor="#000000"  BorderWidth="1" /> 
+							   <Button  Grid.Row="2" Grid.Column="1" Text="{Binding ExpertiseViewModelItem.IoT}" FontSize="Micro" TextColor="#000000"
+									   BackgroundColor="Transparent" BorderColor="#000000"  BorderWidth="1"/> 
+							   <Button Grid.Row="2" Grid.Column="2"  Text="{Binding ExpertiseViewModelItem.Blockchain}" FontSize="Micro" TextColor="#000000" 
+									   BackgroundColor="Transparent" BorderColor="#000000"  BorderWidth="1"/>
+								
+							   <Button Grid.Row="3" Grid.Column="0" Text="{Binding ExpertiseViewModelItem.Education}" FontSize="Micro" TextColor="#000000"
+									   BackgroundColor="Transparent" BorderColor="#000000"  BorderWidth="1" /> 
+							   <Button  Grid.Row="3" Grid.Column="1" Text="{Binding ExpertiseViewModelItem.Finance}" FontSize="Micro" TextColor="#FF5C4C"
+									   BackgroundColor="#000000" BorderColor="#000000"  BorderWidth="1"/> 
+								
+							   <Button Grid.Row="3" Grid.Column="2"  Text="More" FontSize="Micro" TextColor="#FFFFFF" 
+									   BackgroundColor="#000000"  BorderWidth="1" />--><!--
+						</Grid>
+
+					</Frame> 
+				</ViewCell>
+			</DataTemplate>
+			
+			<DataTemplate x:Key="type4Template">
+				<ViewCell>
+					<Frame Margin="10,0">
+						<Label Text="Distance" HorizontalOptions="Start"/>
+						<Slider x:Name="distance" Maximum="100" Value="10"/>
+					</Frame>
+				</ViewCell>
+			</DataTemplate>
+			
+						
+			<DataTemplate x:Key="type5Template">
+				<ViewCell>
+				   <Button Grid.Row="2" Image="startswipingbtn"
+					Command="{Binding BindingContext.SwipingCommand,Source={x:Reference discoveryRef}}"
+					/>  
+				</ViewCell>
+			</DataTemplate>
+			
+
+			--><!--Template Views end here -->
+			
+			
+			<!--Template TemplateSelector --><!--
+			
+			<local:DiscoveryItemTemplateSelector 
+				   x:Key="discoveryItemTemplateSelector"
+				   DefaultTemplate="{StaticResource defalutTemplate}"
+				   Type1Template="{StaticResource type1Template}"                              
+				   Type2Template="{StaticResource type2Template}"                              
+				   Type3Template="{StaticResource type3Template}"
+				   Type4Template="{StaticResource type4Template}"
+				   Type5Template="{StaticResource type5Template}"
+			/>                             
+			
+			
+		</ResourceDictionary>
+	</ContentPage.Resources>-->
+
+	<!--Scroll View inside list view give bad performance-->
+
+
+	<ScrollView Margin="10">
+		<FlexLayout Direction="Column">
+
+			<Frame Margin="15" BackgroundColor="#FFFFFF">
+
+				<StackLayout>
+					<Label  Text="Seniority" Grid.ColumnSpan="3" Style="{StaticResource labelblack}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+
+
+					<autocomplete:SfAutoComplete HeightRequest="80"
+										TextHighlightMode="MultipleOccurrence" HighlightedTextColor="Red" NoResultsFoundText="Record is not found."
+										ShowClearButton="False"    HighlightedTextFontAttributes="Bold" SuggestionMode="Contains"		 MultiSelectMode="Token" 
+												Watermark="Select Seniority"	  IsSelectedItemsVisibleInDropDown="false"   SelectedItem="{Binding myExpertise}"  TokensWrapMode="Wrap" DataSource="{Binding SeniorityCollection}">
+						<autocomplete:SfAutoComplete.TokenSettings>
+							<autocomplete:TokenSettings  FontSize="16" BackgroundColor="Black" 
+										TextColor="White" SelectedBackgroundColor="#ffffe0" 
+										DeleteButtonColor="Color.Pink" IsCloseButtonVisible="true" 
+										CornerRadius="15">
+
+							</autocomplete:TokenSettings>
+						</autocomplete:SfAutoComplete.TokenSettings>
+					</autocomplete:SfAutoComplete>
+
+				</StackLayout>
+
+			</Frame>
+
+
+			<Frame Margin="15" BackgroundColor="#FFFFFF">
+				<StackLayout>
+					<Label Grid.Row="0" Text="Industries" 
+						   Style="{StaticResource labelblack}"
+						   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+
+
+
+					<autocomplete:SfAutoComplete HeightRequest="40"  NoResultsFoundText="Record is not found."
+										TextHighlightMode="MultipleOccurrence" HighlightedTextColor="Red" HighlightedTextFontAttributes="Bold" SuggestionMode="Contains"			
+									Watermark="Select Industry"			 Text="{Binding industry}" DisplayMemberPath="Name" SelectionChanged="SfAutoComplete_SelectionChanged"
+												ShowClearButton="False"	DataSource="{Binding IndustryCollection}" IsSelectedItemsVisibleInDropDown="false" />
+				</StackLayout>
+
+			</Frame>
+		   
+			<Frame Margin="15" BackgroundColor="#FFFFFF">
+				<StackLayout >
+				<Label Grid.Row="0" Text="Seeking" Grid.ColumnSpan="3" Style="{StaticResource labelblack}"
+								   HorizontalOptions="Start" VerticalOptions="Start"/>
+
+					<autocomplete:SfAutoComplete HeightRequest="80" x:Name="autoComplete" 
+										TextHighlightMode="MultipleOccurrence" HighlightedTextColor="Red" NoResultsFoundText="Record is not found or first select Industry."
+										Watermark="Select Seeking"		ShowClearButton="False"    HighlightedTextFontAttributes="Bold" SuggestionMode="Contains"		 MultiSelectMode="Token" DisplayMemberPath="Name"
+										SelectedItem="{Binding siniority}"	  IsSelectedItemsVisibleInDropDown="false"   TokensWrapMode="Wrap" DataSource="{Binding ExpertiseCollection}">
+						<autocomplete:SfAutoComplete.TokenSettings>
+							<autocomplete:TokenSettings  FontSize="16" BackgroundColor="Black" 
+										TextColor="White" SelectedBackgroundColor="#ffffe0" 
+										DeleteButtonColor="Color.Pink" IsCloseButtonVisible="true" 
+										CornerRadius="15">
+
+							</autocomplete:TokenSettings>
+						</autocomplete:SfAutoComplete.TokenSettings>
+					</autocomplete:SfAutoComplete>
+				</StackLayout>
+
+			</Frame>
+
+			<syncfusion1:SfBusyIndicator  x:Name="busyIndicator" Title="Loading..." 
+									 Margin="90,0,0,0"    IsVisible="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" />
+
+
+			<Frame Margin="10,0" >
+				<StackLayout>
+				<Label Text="Distance" HorizontalOptions="Start"/>
+						<Slider x:Name="distance" Maximum="100" Value="10"/>
+				</StackLayout>
+			</Frame>
+		
+		    <Button Image="startswipingbtn" BackgroundColor="Transparent"
+					Command="{Binding BindingContext.SwipingCommand,Source={x:Reference discoveryRef}}"
+					/>
+	  
+		</FlexLayout>
+
+	</ScrollView> 
+	  
+</ContentPage>

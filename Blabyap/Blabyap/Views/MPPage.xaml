@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="Blabyap.Views.MPPage"
+                 BackgroundImage="bg"  
+             NavigationPage.HasNavigationBar="False"
+             x:Name="matchProfileRef"
+              xmlns:local="clr-namespace:Blabyap.ViewModels"
+             >
+    
+        <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,25,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Template Views starts here -->
+            <DataTemplate x:Key="defalutTemplate">
+                <ViewCell>
+                    <StackLayout BackgroundColor="Aqua">
+                        <Label Text="defalutTemplate"/>
+                        <Label Text="Type"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="type1Template">
+              <ViewCell>
+                <Frame Margin="15,5" BackgroundColor="Transparent">
+                   <Grid>
+                     <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="Auto"/>      
+                          <ColumnDefinition Width="*"/>      
+                     </Grid.ColumnDefinitions> 
+                            <Image Grid.Column="0" Source="{Binding PersonalViewModelItem.ProfileImage}" 
+                                   HorizontalOptions="Start"/>
+                            <StackLayout Grid.Column="1" HorizontalOptions="Start"  VerticalOptions="Center">
+                                <Label Text="{Binding PersonalViewModelItem.Name}" 
+                                       FontSize="Medium" Style="{StaticResource labelblack}"/>
+                                <Label Text="{Binding PersonalViewModelItem.Designation}"
+                                        TextColor="#ffffff"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="locationIcon" />
+                                    <Label Text="{Binding PersonalViewModelItem.Distance}"/>
+                                </StackLayout>
+                            </StackLayout>
+                   </Grid>
+                </Frame>
+              </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="type2Template">
+                <ViewCell>
+                    <Frame Margin="15,5" BackgroundColor="Transparent">
+                        <Grid RowSpacing="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                                
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>    
+                           
+                               <Button Grid.Row="1" Grid.Column="0" Text="{Binding ExperienceViewModelItem.Consulting}" 
+                                       FontSize="Micro" TextColor="#FF5C4C"
+                                       BackgroundColor="#FFFFFF" BorderColor="#FFFFFF" BorderWidth="1" /> 
+                               <Button  Grid.Row="1" Grid.Column="1" Text="{Binding ExperienceViewModelItem.Coaching}" 
+                                        FontSize="Micro" TextColor="#FFFFFF"
+                                       BackgroundColor="Transparent" BorderColor="#FFFFFF" BorderWidth="1"/> 
+                               <Button Grid.Row="1" Grid.Column="2"  Text="{Binding ExperienceViewModelItem.AI}" 
+                                       FontSize="Micro" TextColor="#FF5C4C" 
+                                       BackgroundColor="#FFFFFF" BorderColor="#FFFFFF" BorderWidth="1"/> 
+                                
+                               <Button Grid.Row="2" Grid.Column="0" Text="{Binding ExperienceViewModelItem.Technology}" 
+                                       FontSize="Micro" TextColor="#FFFFFF"
+                                       BackgroundColor="Transparent"  BorderColor="#FFFFFF"  BorderWidth="1" /> 
+                               <Button  Grid.Row="2" Grid.Column="1" Text="{Binding ExperienceViewModelItem.IoT}" 
+                                        FontSize="Micro" TextColor="#FF5C4C"
+                                       BackgroundColor="#FFFFFF" BorderColor="#FFFFFF"  BorderWidth="1"/> 
+                               <Button Grid.Row="2" Grid.Column="2"  Text="{Binding ExperienceViewModelItem.Blockchain}" 
+                                       FontSize="Micro" TextColor="#FFFFFF" 
+                                       BackgroundColor="Transparent" BorderColor="#FFFFFF"  BorderWidth="1"/>
+                                
+                               <Button Grid.Row="3" Grid.Column="0" Text="{Binding ExperienceViewModelItem.Enterpreneur}"
+                                       FontSize="Micro" TextColor="#FF5C4C"
+                                       BackgroundColor="#FFFFFF" BorderColor="#FFFFFF"  BorderWidth="1" /> 
+                               <Button  Grid.Row="3" Grid.Column="1" Text="{Binding ExperienceViewModelItem.Startups}" 
+                                        FontSize="Micro" TextColor="#FF5C4C"
+                                       BackgroundColor="#FFFFFF" BorderColor="#FFFFFF"  BorderWidth="1"/> 
+                                
+                               <Button Grid.Row="3" Grid.Column="2"  Text="2 More" FontSize="Micro" TextColor="#FFFFFF" 
+                                       BackgroundColor="#000000"  BorderWidth="1" />
+                           
+                        </Grid>
+                    </Frame> 
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="type3Template">
+                <ViewCell>
+                    <Frame Margin="15,5" BackgroundColor="#FF5C4C" Opacity=".5">
+                      <StackLayout HorizontalOptions="Start">
+                        <Label Text="{Binding MatchAboutYouViewModelItem.Description}" HorizontalOptions="Start" 
+                               HorizontalTextAlignment="Start"
+                               Style="{StaticResource labelwhite}"/>
+                        <Label Text="More..." TextColor="#000000"/>    
+                      </StackLayout>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="type4Template">
+                <ViewCell>
+                    <StackLayout>
+                        <Frame Margin="15,0" BackgroundColor="#FFFFFF">
+                            <Grid>
+                               <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2.2*"/>
+                                    <ColumnDefinition Width="7*"/>
+                                </Grid.ColumnDefinitions> 
+                                <Image Grid.Column="0" Source="industryIcon" HorizontalOptions="Start"/>
+                                <Label Grid.Column="1" Text="Industry" TextColor="#ff5c4c" FontSize="Micro"  HorizontalOptions="Start"/>
+                                <Label Grid.Column="2" Text="{Binding OtherPersonalInfoViewModelItem.Industry}" 
+                                       TextColor="#000000" HorizontalOptions="End"  FontSize="Micro" 
+                                       LineBreakMode="WordWrap"/>
+                           
+                            </Grid>
+                      </Frame>
+                        <Frame Margin="15,0" BackgroundColor="#FFFFFF">
+                            <Grid>
+                               <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="7*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="organizationIcon" HorizontalOptions="Start"/>
+                                <Label Grid.Column="1" Text="Organization" TextColor="#ff5c4c" FontSize="Micro"  HorizontalOptions="Start"/>
+                                <Label Grid.Column="2" Text="{Binding OtherPersonalInfoViewModelItem.Organization}" 
+                                       TextColor="#000000" HorizontalOptions="End"  FontSize="Micro" 
+                                       HorizontalTextAlignment="End" LineBreakMode="WordWrap"/>                            </Grid>
+
+                        </Frame>
+                        <Frame Margin="15,0" BackgroundColor="#FFFFFF">
+                            <Grid>
+                               <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2.2*"/>
+                                    <ColumnDefinition Width="7*"/>
+                                </Grid.ColumnDefinitions> 
+                                <Image Grid.Column="0" Source="educationIcon" HorizontalOptions="Start"/>
+                                <Label Grid.Column="1" Text="Education" TextColor="#ff5c4c" FontSize="Micro" HorizontalOptions="Start"/>
+                                <Label Grid.Column="2" Text="{Binding OtherPersonalInfoViewModelItem.Education}"
+                                       TextColor="#000000" HorizontalOptions="End"  FontSize="Micro" 
+                                      HorizontalTextAlignment="End" LineBreakMode="WordWrap"/>
+                           </Grid>
+                         
+                        </Frame>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            
+            <!--Template Views end here -->
+            
+            
+            <!--Template TemplateSelector -->
+            
+            <local:MatchProfileItemTemplateSelector x:Key="matchProfileItemTemplateSelector"
+                   DefaultTemplate="{StaticResource defalutTemplate}"
+                   Type1Template="{StaticResource type1Template}"                              
+                   Type2Template="{StaticResource type2Template}"                              
+                   Type3Template="{StaticResource type3Template}"                              
+                   Type4Template="{StaticResource type4Template}" />                             
+            
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+
+        <Grid RowSpacing="10" BackgroundColor="Transparent">
+          <Grid.RowDefinitions >
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="8.8*"/>
+            
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button  Grid.Column="0" Image="back"
+               BackgroundColor="Transparent" 
+                    Command="{Binding BindingContext.PreviousCommand,
+                Source={x:Reference matchProfileRef}}"
+                    >
+                 <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="2,-5,0,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Button.Margin>  
+             </Button>
+           
+           <Label Grid.Column="1" Text="My CV" Style="{StaticResource heading}"
+                  Margin="0,5,0,0" >
+                <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,0,0,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Label.Margin>    
+            </Label>
+            
+          <Button  Grid.Column="2" Image="msgicon" Scale=".7"
+               BackgroundColor="Transparent"
+                    Command="{Binding BindingContext.ChatCommand,Source={x:Reference matchProfileRef}}"
+                     >
+                 <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="2,-5,0,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Button.Margin>  
+             </Button> 
+        </Grid>
+        
+       <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/> 
+                <RowDefinition Height="Auto"/> 
+            </Grid.RowDefinitions>
+      
+            <ListView x:Name="MyListView" RowHeight="200"  
+                       ItemTemplate="{StaticResource matchProfileItemTemplateSelector}"
+                      ItemsSource="{Binding MatchProfileItemList}"
+                      CachingStrategy="RecycleElement"
+                      BackgroundColor="Transparent"
+                      SeparatorColor="Transparent"
+                      SeparatorVisibility="None">
+               
+                
+            </ListView>
+ 
+              
+      <Grid Grid.Row="1" BackgroundColor="#000000">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <Image Margin="10,0" Grid.Column="0" Source="RatingStar" HorizontalOptions="Center"/>
+                <Label Grid.Column="1" Text="|" TextColor="#ffffff" HorizontalOptions="Center" VerticalOptions="Center"/>
+                 <Button Margin="10,0" Grid.Column="2" Text="3 Comments" HorizontalOptions="Center" TextColor="#FF5C4C" Command="{Binding BindingContext.CommentsCommand,Source={x:Reference matchProfileRef}}"  /> 
+            </Grid>
+ 
+        </Grid>
+   
+            </Grid> 
+      
+       
+ 
+</ContentPage>

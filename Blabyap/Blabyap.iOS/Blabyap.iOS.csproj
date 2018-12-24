@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{30825207-21C5-4F8D-BB1C-AEE8ED2F3B75}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{65C0771A-452F-423B-995C-F0AE46E643BA}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Blabyap.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Blabyap.iOS</AssemblyName>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ReleaseVersion>0.5</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Arul Jenine (2FTVH7MCHB)</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Arul Jenine (2FTVH7MCHB)</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer: Arul Jenine (2FTVH7MCHB)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer: Arul Jenine (2FTVH7MCHB)</CodesignKey>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <CodesignProvision>BlabyDev</CodesignProvision>
+    <BuildIpa>false</BuildIpa>
+    <IpaMetadata>
+    </IpaMetadata>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderer\LoginRenderer.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderer\ExtendedViewCellRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <BundleResource Include="Resources\tab_about.png" />
+    <BundleResource Include="Resources\tab_about%402x.png" />
+    <BundleResource Include="Resources\tab_about%403x.png" />
+    <BundleResource Include="Resources\tab_feed.png" />
+    <BundleResource Include="Resources\tab_feed%402x.png" />
+    <BundleResource Include="Resources\tab_feed%403x.png" />
+    <BundleResource Include="Resources\xamarin_logo.png" />
+    <BundleResource Include="Resources\xamarin_logo%402x.png" />
+    <BundleResource Include="Resources\xamarin_logo%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPad@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPadPro@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\noti.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\noti@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\noti@2x1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\noti@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\setting.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\setting@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\setting@2x1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\setting@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\spot.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\spot@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\spot@2x1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\spot@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\aboutusIcon.png" />
+    <BundleResource Include="Resources\aboutusIcon%403x.png" />
+    <BundleResource Include="Resources\addphoto.png" />
+    <BundleResource Include="Resources\addphoto%402x.png" />
+    <BundleResource Include="Resources\addphoto%403x.png" />
+    <BundleResource Include="Resources\back.png" />
+    <BundleResource Include="Resources\back%402x.png" />
+    <BundleResource Include="Resources\back%403x.png" />
+    <BundleResource Include="Resources\bg.png" />
+    <BundleResource Include="Resources\bg%402x.png" />
+    <BundleResource Include="Resources\bg%403x.png" />
+    <BundleResource Include="Resources\camera.png" />
+    <BundleResource Include="Resources\camera%402x.png" />
+    <BundleResource Include="Resources\camera%403x.png" />
+    <BundleResource Include="Resources\cancel.png" />
+    <BundleResource Include="Resources\cancel%402x.png" />
+    <BundleResource Include="Resources\cancel%403x.png" />
+    <BundleResource Include="Resources\CanvasSelection.png" />
+    <BundleResource Include="Resources\CanvasSelection%402x.png" />
+    <BundleResource Include="Resources\CanvasSelection%403x.png" />
+    <BundleResource Include="Resources\changepasswordbtn.png" />
+    <BundleResource Include="Resources\changepasswordbtn%402x.png" />
+    <BundleResource Include="Resources\changepasswordbtn%403x.png" />
+    <BundleResource Include="Resources\chatbtn.png" />
+    <BundleResource Include="Resources\chatbtn%402x.png" />
+    <BundleResource Include="Resources\chatbtn%403x.png" />
+    <BundleResource Include="Resources\ChatPic1.png" />
+    <BundleResource Include="Resources\ChatPic1%402x.png" />
+    <BundleResource Include="Resources\ChatPic1%403x.png" />
+    <BundleResource Include="Resources\ChatPic2.png" />
+    <BundleResource Include="Resources\ChatPic2%402x.png" />
+    <BundleResource Include="Resources\ChatPic2%403x.png" />
+    <BundleResource Include="Resources\ChatPic3.png" />
+    <BundleResource Include="Resources\ChatPic3%402x.png" />
+    <BundleResource Include="Resources\ChatPic3%403x.png" />
+    <BundleResource Include="Resources\ChatPic4.png" />
+    <BundleResource Include="Resources\ChatPic4%402x.png" />
+    <BundleResource Include="Resources\ChatPic4%403x.png" />
+    <BundleResource Include="Resources\chatprofile1.png" />
+    <BundleResource Include="Resources\chatprofile1%402x.png" />
+    <BundleResource Include="Resources\chatprofile1%403x.png" />
+    <BundleResource Include="Resources\chatprofile2.png" />
+    <BundleResource Include="Resources\chatprofile2%402x.png" />
+    <BundleResource Include="Resources\chatprofile2%403x.png" />
+    <BundleResource Include="Resources\completecvbtn.png" />
+    <BundleResource Include="Resources\completecvbtn%402x.png" />
+    <BundleResource Include="Resources\completecvbtn%403x.png" />
+    <BundleResource Include="Resources\contactus.png" />
+    <BundleResource Include="Resources\contactus%402x.png" />
+    <BundleResource Include="Resources\contactus%403x.png" />
+    <BundleResource Include="Resources\discoveryIcon.png" />
+    <BundleResource Include="Resources\discoveryIcon%402x.png" />
+    <BundleResource Include="Resources\discoveryIcon%403x.png" />
+    <BundleResource Include="Resources\educationIcon.png" />
+    <BundleResource Include="Resources\educationIcon%402x.png" />
+    <BundleResource Include="Resources\educationIcon%403x.png" />
+    <BundleResource Include="Resources\Ellipse.png" />
+    <BundleResource Include="Resources\Ellipse%402x.png" />
+    <BundleResource Include="Resources\Ellipse%403x.png" />
+    <BundleResource Include="Resources\flagIcon.png" />
+    <BundleResource Include="Resources\flagIcon%402x.png" />
+    <BundleResource Include="Resources\flagIcon%403x.png" />
+    <BundleResource Include="Resources\gallery.png" />
+    <BundleResource Include="Resources\gallery%402x.png" />
+    <BundleResource Include="Resources\gallery%403x.png" />
+    <BundleResource Include="Resources\getstartedbtn.png" />
+    <BundleResource Include="Resources\getstartedbtn%402x.png" />
+    <BundleResource Include="Resources\getstartedbtn%403x.png" />
+    <BundleResource Include="Resources\Group11.png" />
+    <BundleResource Include="Resources\Group11%402x.png" />
+    <BundleResource Include="Resources\Group11%403x.png" />
+    <BundleResource Include="Resources\Group12.png" />
+    <BundleResource Include="Resources\Group12%402x.png" />
+    <BundleResource Include="Resources\Group12%403x.png" />
+    <BundleResource Include="Resources\Group21.png" />
+    <BundleResource Include="Resources\Group21%402x.png" />
+    <BundleResource Include="Resources\Group21%403x.png" />
+    <BundleResource Include="Resources\Group22.png" />
+    <BundleResource Include="Resources\Group22%402x.png" />
+    <BundleResource Include="Resources\Group22%403x.png" />
+    <BundleResource Include="Resources\Group31.png" />
+    <BundleResource Include="Resources\Group31%402x.png" />
+    <BundleResource Include="Resources\Group31%403x.png" />
+    <BundleResource Include="Resources\Group32.png" />
+    <BundleResource Include="Resources\Group32%402x.png" />
+    <BundleResource Include="Resources\Group32%403x.png" />
+    <BundleResource Include="Resources\Group41.png" />
+    <BundleResource Include="Resources\Group41%402x.png" />
+    <BundleResource Include="Resources\Group41%403x.png" />
+    <BundleResource Include="Resources\Group42.png" />
+    <BundleResource Include="Resources\Group42%402x.png" />
+    <BundleResource Include="Resources\Group42%403x.png" />
+    <BundleResource Include="Resources\industryIcon.png" />
+    <BundleResource Include="Resources\industryIcon%402x.png" />
+    <BundleResource Include="Resources\industryIcon%403x.png" />
+    <BundleResource Include="Resources\keepswipingbtn.png" />
+    <BundleResource Include="Resources\keepswipingbtn%402x.png" />
+    <BundleResource Include="Resources\keepswipingbtn%403x.png" />
+    <BundleResource Include="Resources\lineImage.png" />
+    <BundleResource Include="Resources\lineImage%402x.png" />
+    <BundleResource Include="Resources\lineImage%403x.png" />
+    <BundleResource Include="Resources\lineShape.png" />
+    <BundleResource Include="Resources\lineShape%402x.png" />
+    <BundleResource Include="Resources\lineShape%403x.png" />
+    <BundleResource Include="Resources\locationIcon.png" />
+    <BundleResource Include="Resources\locationIcon%402x.png" />
+    <BundleResource Include="Resources\locationIcon%403x.png" />
+    <BundleResource Include="Resources\loginbtn.png" />
+    <BundleResource Include="Resources\loginbtn%402x.png" />
+    <BundleResource Include="Resources\loginbtn%403x.png" />
+    <BundleResource Include="Resources\loginlinkdinbtn.png" />
+    <BundleResource Include="Resources\loginlinkdinbtn%402x.png" />
+    <BundleResource Include="Resources\loginlinkdinbtn%403x.png" />
+    <BundleResource Include="Resources\Logo.png" />
+    <BundleResource Include="Resources\Logo%402x.png" />
+    <BundleResource Include="Resources\Logo%403x.png" />
+    <BundleResource Include="Resources\logobtn.png" />
+    <BundleResource Include="Resources\logobtn%402x.png" />
+    <BundleResource Include="Resources\logobtn%403x.png" />
+    <BundleResource Include="Resources\logoutbtn.png" />
+    <BundleResource Include="Resources\logoutbtn%402x.png" />
+    <BundleResource Include="Resources\logoutbtn%403x.png" />
+    <BundleResource Include="Resources\masterIcon.png" />
+    <BundleResource Include="Resources\masterIcon%402x.png" />
+    <BundleResource Include="Resources\masterIcon%403x.png" />
+    <BundleResource Include="Resources\matchprofilepic.png" />
+    <BundleResource Include="Resources\matchprofilepic%402x.png" />
+    <BundleResource Include="Resources\matchprofilepic%403x.png" />
+    <BundleResource Include="Resources\meetbtn.png" />
+    <BundleResource Include="Resources\meetbtn%402x.png" />
+    <BundleResource Include="Resources\meetbtn%403x.png" />
+    <BundleResource Include="Resources\meetnowIcon.png" />
+    <BundleResource Include="Resources\meetnowIcon%402x.png" />
+    <BundleResource Include="Resources\meetnowIcon%403x.png" />
+    <BundleResource Include="Resources\msgicon.png" />
+    <BundleResource Include="Resources\msgicon%402x.png" />
+    <BundleResource Include="Resources\msgicon%403x.png" />
+    <BundleResource Include="Resources\MycvIcon.png" />
+    <BundleResource Include="Resources\MycvIcon%402x.png" />
+    <BundleResource Include="Resources\MycvIcon%403x.png" />
+    <BundleResource Include="Resources\navigation.png" />
+    <BundleResource Include="Resources\navigation%402x.png" />
+    <BundleResource Include="Resources\navigation%403x.png" />
+    <BundleResource Include="Resources\organizationIcon.png" />
+    <BundleResource Include="Resources\organizationIcon%402x.png" />
+    <BundleResource Include="Resources\organizationIcon%403x.png" />
+    <BundleResource Include="Resources\passbutton.png" />
+    <BundleResource Include="Resources\passbutton%402x.png" />
+    <BundleResource Include="Resources\passbutton%403x.png" />
+    <BundleResource Include="Resources\passportIcon.png" />
+    <BundleResource Include="Resources\passportIcon%402x.png" />
+    <BundleResource Include="Resources\passportIcon%403x.png" />
+    <BundleResource Include="Resources\premiumIcon.png" />
+    <BundleResource Include="Resources\premiumIcon%402x.png" />
+    <BundleResource Include="Resources\premiumIcon%403x.png" />
+    <BundleResource Include="Resources\PrivacyPolicy.png" />
+    <BundleResource Include="Resources\PrivacyPolicy%402x.png" />
+    <BundleResource Include="Resources\PrivacyPolicy%403x.png" />
+    <BundleResource Include="Resources\ProfilePic.png" />
+    <BundleResource Include="Resources\ProfilePic%402x.png" />
+    <BundleResource Include="Resources\ProfilePic%403x.png" />
+    <BundleResource Include="Resources\profilepicture.png" />
+    <BundleResource Include="Resources\profilepicture%402x.png" />
+    <BundleResource Include="Resources\profilepicture%403x.png" />
+    <BundleResource Include="Resources\RatingStar.png" />
+    <BundleResource Include="Resources\RatingStar%402x.png" />
+    <BundleResource Include="Resources\RatingStar%403x.png" />
+    <BundleResource Include="Resources\Sendbtn.png" />
+    <BundleResource Include="Resources\Sendbtn%402x.png" />
+    <BundleResource Include="Resources\Sendbtn%403x.png" />
+    <BundleResource Include="Resources\sendIcon.png" />
+    <BundleResource Include="Resources\sendIcon%402x.png" />
+    <BundleResource Include="Resources\sendIcon%403x.png" />
+    <BundleResource Include="Resources\settingsIcon.png" />
+    <BundleResource Include="Resources\settingsIcon%402x.png" />
+    <BundleResource Include="Resources\settingsIcon%403x.png" />
+    <BundleResource Include="Resources\Shape.png" />
+    <BundleResource Include="Resources\Shape%402x.png" />
+    <BundleResource Include="Resources\Shape%403x.png" />
+    <BundleResource Include="Resources\signupbtn.png" />
+    <BundleResource Include="Resources\signupbtn%402x.png" />
+    <BundleResource Include="Resources\signupbtn%403x.png" />
+    <BundleResource Include="Resources\Star.png" />
+    <BundleResource Include="Resources\Star%402x.png" />
+    <BundleResource Include="Resources\Star%403x.png" />
+    <BundleResource Include="Resources\startswipingbtn.png" />
+    <BundleResource Include="Resources\startswipingbtn%402x.png" />
+    <BundleResource Include="Resources\startswipingbtn%403x.png" />
+    <BundleResource Include="Resources\suggestions.png" />
+    <BundleResource Include="Resources\suggestions%402x.png" />
+    <BundleResource Include="Resources\suggestions%403x.png" />
+    <BundleResource Include="Resources\supermatchbtn.png" />
+    <BundleResource Include="Resources\supermatchbtn%402x.png" />
+    <BundleResource Include="Resources\supermatchbtn%403x.png" />
+    <BundleResource Include="Resources\SwipePic.png" />
+    <BundleResource Include="Resources\SwipePic%402x.png" />
+    <BundleResource Include="Resources\SwipePic%403x.png" />
+    <BundleResource Include="Resources\termsandconditions.png" />
+    <BundleResource Include="Resources\termsandconditions%402x.png" />
+    <BundleResource Include="Resources\termsandconditions%403x.png" />
+    <BundleResource Include="Resources\unmatchbtn.png" />
+    <BundleResource Include="Resources\unmatchbtn%402x.png" />
+    <BundleResource Include="Resources\unmatchbtn%403x.png" />
+    <BundleResource Include="Resources\useskinbtn.png" />
+    <BundleResource Include="Resources\useskinbtn%402x.png" />
+    <BundleResource Include="Resources\useskinbtn%403x.png" />
+    <BundleResource Include="Resources\VIPIcon.png" />
+    <BundleResource Include="Resources\VIPIcon%402x.png" />
+    <BundleResource Include="Resources\VIPIcon%403x.png" />
+    <BundleResource Include="Resources\hamburger.png" />
+    <BundleResource Include="Resources\hamburger%402x.png" />
+    <BundleResource Include="Resources\hamburger%403x.png" />
+    <BundleResource Include="Resources\aboutusIcon%402x.png" />
+    <BundleResource Include="Resources\blogo.png" />
+    <BundleResource Include="Resources\blogo%402x.png" />
+    <BundleResource Include="Resources\blogo%403x.png" />
+    <BundleResource Include="Resources\AppTour1.png" />
+    <BundleResource Include="Resources\AppTour1%402x.png" />
+    <BundleResource Include="Resources\AppTour1%403x.png" />
+    <BundleResource Include="Resources\AppTour2.png" />
+    <BundleResource Include="Resources\AppTour2%402x.png" />
+    <BundleResource Include="Resources\AppTour2%403x.png" />
+    <BundleResource Include="Resources\blabyapPlus.png" />
+    <BundleResource Include="Resources\blabyapPlus%402x.png" />
+    <BundleResource Include="Resources\blabyapPlus%403x.png" />
+    <BundleResource Include="Resources\blabyapVIP.png" />
+    <BundleResource Include="Resources\blabyapVIP%402x.png" />
+    <BundleResource Include="Resources\blabyapVIP%403x.png" />
+    <BundleResource Include="Resources\getmeetnow.png" />
+    <BundleResource Include="Resources\getmeetnow%402x.png" />
+    <BundleResource Include="Resources\getmeetnow%403x.png" />
+    <BundleResource Include="Resources\getsupermatches.png" />
+    <BundleResource Include="Resources\getsupermatches%402x.png" />
+    <BundleResource Include="Resources\getsupermatches%403x.png" />
+    <BundleResource Include="Resources\deleteaccountbtn.png" />
+    <BundleResource Include="Resources\deleteaccountbtn%402x.png" />
+    <BundleResource Include="Resources\deleteaccountbtn%403x.png" />
+    <BundleResource Include="Resources\HideAge.png" />
+    <BundleResource Include="Resources\HideAge%402x.png" />
+    <BundleResource Include="Resources\HideAge%403x.png" />
+    <BundleResource Include="Resources\Invisible.png" />
+    <BundleResource Include="Resources\Invisible%402x.png" />
+    <BundleResource Include="Resources\Invisible%403x.png" />
+    <BundleResource Include="Resources\Skin.png" />
+    <BundleResource Include="Resources\Skin%402x.png" />
+    <BundleResource Include="Resources\Skin%403x.png" />
+    <BundleResource Include="Resources\Canvas1.png" />
+    <BundleResource Include="Resources\Canvas1%402x.png" />
+    <BundleResource Include="Resources\Canvas1%403x.png" />
+    <BundleResource Include="Resources\Canvas2.png" />
+    <BundleResource Include="Resources\Canvas2%402x.png" />
+    <BundleResource Include="Resources\Canvas2%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AiForms.Layouts">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="akavache">
+      <Version>6.0.31</Version>
+    </PackageReference>
+    <PackageReference Include="akavache.core">
+      <Version>6.0.31</Version>
+    </PackageReference>
+    <PackageReference Include="akavache.sqlite3">
+      <Version>6.0.31</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.SignalR.Client">
+      <Version>2.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator">
+      <Version>16.4.0.42</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfDataForm">
+      <Version>16.4.0.42</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfListView">
+      <Version>16.4.0.42</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRotator">
+      <Version>16.4.0.42</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations">
+      <Version>2.4.4.859</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.4.859</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>1.1.5.180</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.MultiGestureView">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Multilingual">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Forms.Controls.SwipeCards">
+      <Version>0.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Forms">
+      <Version>7.1.0.431</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.DryIoc.Forms">
+      <Version>7.1.0.431</Version>
+    </PackageReference>
+    <PackageReference Include="Xfx.Controls">
+      <Version>1.1.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Blabyap.Common.Model\Blabyap.Common.Model.csproj">
+      <Project>{6bf8f6f8-57c1-463e-abee-3252da0e4d52}</Project>
+      <Name>Blabyap.Common.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blabyap\Blabyap.csproj">
+      <Project>{E5849E1D-5CA3-44CD-BAC1-CBEE1FA9FF82}</Project>
+      <Name>Blabyap</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InBtn%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InBtn%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\login btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\login btn%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\login btn%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LoginBttn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LoginBttn%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LoginBttn%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SBtn%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SBtn%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GotoDisc%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GotoDisc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GotoDisc%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FPass%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FPass%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CPass%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CPass%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RPass%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RPass%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splashIogo%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splashIogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splashIogo%402x.png" />
+  </ItemGroup>
+</Project>

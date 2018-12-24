@@ -1,0 +1,71 @@
+﻿using Blabyap.Common.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
+using BlabyApAzure.API.Models;
+using Microsoft.Azure.Documents;
+using System.Security.Claims;
+using System.Web.Http.Description;
+
+namespace BlabyApAzure.API.Controllers
+{
+
+    [Authorize]
+    [RoutePrefix("api/CV")]
+    public class CVController : ApiController
+    {
+        [HttpPost]
+        [Route("PostCV")]
+        public async Task<IHttpActionResult> PostCandidateCV(CVData mycv)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                mycv.Email = User.Identity.Name;//.FindFirstValue(ClaimTypes.NameIdentifier);
+                mycv.cvID = mycv.Email + "_CV";
+
+                IEnumerable<CVData> userCVs = null;// await DocumentDBRepository<CVData>.GetDatasAsync(u => u.cvID == mycv.cvID);//.FirstOrDefault();// (u => u.UserMail == User.Identity.Name);
+                Document newdoc = null;
+                if (userCVs == null)
+                {
+                    newdoc = await DocumentDBRepository<CVData>.CreateDataAsync(mycv);
+                }
+                else
+                {
+
+                    newdoc = await DocumentDBRepository<CVData>.UpdateDataAsync(mycv.cvID, mycv);
+                }
+                return CreatedAtRoute("DefaultApi", new { id = mycv.cvID }, mycv);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+           
+        }
+
+        // GET: api/MyCVs/5
+        [Route("GetCV")]
+        [AllowAnonymous]
+        [ResponseType(typeof(CVData))]
+        public async Task<IHttpActionResult> GetMyCV(string usermail)
+        {
+            IEnumerable<CVData> userCVs = await DocumentDBRepository<CVData>.GetDatasAsync(u =>u.cvID == usermail+"_CV");// (u => u.UserMail == User.Identity.Name);
+
+            if (userCVs == null)
+            {
+                return NotFound();
+            }
+
+            CVData RetData = userCVs.First<CVData>();
+            return Ok(RetData);
+        }
+    }
+    
+}

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:VM="clr-namespace:Blabyap.ViewModels"
+             Title="{Binding Title}"
+             x:Class="Blabyap.Views.ChatPage"
+             BackgroundImage="bg" 
+             NavigationPage.HasNavigationBar="False"
+             x:Name="chatPageRef">
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,25,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate  x:Key="sellerTemplate">
+                <ViewCell>
+                    <Grid Margin="10,5" HorizontalOptions="Start">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="7*"/>
+                            <RowDefinition Height="3*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="8.5*"/>
+                        </Grid.ColumnDefinitions>
+                         <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" Source="{Binding ImageUrl}"/>
+                        <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" Source="RoundedRectangleChatBrown" Scale="2"/>
+                        <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalTextAlignment="Center"
+                                Text="{Binding Description}" FontSize="Small" TextColor="#6C6C6C"/>
+                        <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" Text="{Binding Name}" FontSize="Micro" TextColor="Black"/>
+                        <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="End" Text="{Binding CreatedDate}" FontSize="Micro" TextColor="Black"/>
+                    </Grid>
+                    
+                </ViewCell>
+
+            </DataTemplate>
+
+            <DataTemplate x:Key="buyerTemplate">
+
+                <ViewCell>
+                    <Grid Margin="10,5" HorizontalOptions="End">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="7*"/>
+                            <RowDefinition Height="3*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" Source="RoundedRectangleChatWhite" Scale="2"/>
+                      <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" Text="{Binding Description}" FontSize="Small" TextColor="#6C6C6C"/>
+                        <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="End" Source="{Binding ImageUrl}"/>
+                        <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" Text="{Binding CreatedDate}" FontSize="Micro" TextColor="Black"/>
+                    </Grid>
+                  
+                </ViewCell>
+
+            </DataTemplate>
+            <VM:SellerBuyerTemplateSelector x:Key="SellerBuyerTemplateSelector"
+                                            DefaultTemplate="{StaticResource sellerTemplate}"
+                                            
+                                            SellerTemplate="{StaticResource sellerTemplate}"
+                                            BuyerTemplate="{StaticResource buyerTemplate}"/>
+
+
+
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    <!--<Grid RowSpacing="10" Margin="10">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="8.8*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button  Grid.Column="0" Image="back"
+               BackgroundColor="Transparent" 
+                    Command="{Binding BindingContext.PreviousCommand,Source={x:Reference chatPageRef}}"
+                     
+                     >
+                <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,-45,0,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Button.Margin>
+            </Button>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"  Text="Chat" Style="{StaticResource heading}" />
+                <Label Grid.Row="1" Text="You matched with Amy on 21-06-2018" FontSize="Micro"
+                        Style="{StaticResource labelblack}" LineBreakMode="NoWrap" HorizontalOptions="Center"/>
+                <Image Grid.Row="2" Source="lineShape"/>
+                <Label Grid.Row="2"  Text="Tuesday 20:81" Style="{StaticResource labelwhite}" FontSize="Micro"
+                       BackgroundColor="#B53D31" HorizontalOptions="Center"/>
+
+            </Grid>
+
+
+            <Button  Grid.Column="2" Image="flagIcon" Scale=".7" 
+                    Command="{Binding BindingContext.UnMatchProfileCommand,Source={x:Reference chatPageRef}}"
+               BackgroundColor="Transparent">
+                <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="10,-45,0,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Button.Margin>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="10,0,10,0" 
+              HorizontalOptions="Start" VerticalOptions="Start">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <ListView Grid.Row="0" BackgroundColor="Transparent" RowHeight="70" 
+                      SeparatorColor="Transparent"
+                      ItemsSource="{Binding ChatModelList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="7*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="{Binding ImageUrl}" />
+                                <StackLayout Grid.Column="1" VerticalOptions="Center" >
+                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding Description}"/>
+                                </StackLayout>
+                                <Image Grid.Column="2" Source="{Binding ChatModel.ImageIcon}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView Grid.Row="0" BackgroundColor="Transparent" RowHeight="80" 
+                  
+                  ItemsSource="{Binding ChatModelList}"
+                    CachingStrategy="RecycleElement"
+                   ItemTemplate="{StaticResource SellerBuyerTemplateSelector}"
+                 />
+
+            <Entry Grid.Row="1" Placeholder="Enter Message" HorizontalOptions="FillAndExpand" 
+                   BackgroundColor="Transparent" />
+            <Button Grid.Row="1" Image="sendIcon" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="Transparent"
+                    Command="{Binding BindingContext.SendMsgCommand,Source={x:Reference chatPageRef}}"/>
+
+
+        </Grid>
+    </Grid>-->
+    <StackLayout>
+       
+        
+            <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
+            <Button Image="back"
+               BackgroundColor="Transparent" 
+                    Command="{Binding BindingContext.PreviousCommand}"/>
+
+
+            <Label Text="Chat" Style="{StaticResource heading}" />
+            <Button Image="flagIcon" Scale=".7" 
+                    Command="{Binding BindingContext.UnMatchProfileCommand,Source={x:Reference chatPageRef}}"
+               BackgroundColor="Transparent"/>
+                
+            </FlexLayout>
+
+        <ScrollView>
+            <StackLayout>
+                        <FlexLayout  Direction="Column" AlignItems="Center">
+                            <Label Text="You matched with Amy on 21-06-2018" FontSize="Micro"
+                        Style="{StaticResource labelblack}" FontAttributes="Bold"/>
+
+                        </FlexLayout>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+
+                            <Image  Source="lineShape"  Grid.Row="0"/>
+
+                            <Label  Text="Tuesday 20:81" Style="{StaticResource labelwhite}" FontSize="Micro"
+                       BackgroundColor="#B53D31" Grid.Row="0" HorizontalOptions="Center" />
+                        </Grid>
+                        <FlexLayout>
+                            <ListView  BackgroundColor="Transparent" RowHeight="80" 
+                  
+                  ItemsSource="{Binding ChatModelList}"
+                    CachingStrategy="RecycleElement"
+                   ItemTemplate="{StaticResource SellerBuyerTemplateSelector}"
+                 />
+                        </FlexLayout>
+            </StackLayout>
+        </ScrollView>
+        <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Entry Grid.Row="0" Placeholder="Enter Message" HorizontalOptions="FillAndExpand" 
+                   BackgroundColor="Transparent" />
+                    <Button Grid.Row="0" Image="sendIcon" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="Transparent"
+                    Command="{Binding BindingContext.SendMsgCommand,Source={x:Reference chatPageRef}}"/>
+
+                </Grid>
+           
+   
+
+    </StackLayout>
+</ContentPage>

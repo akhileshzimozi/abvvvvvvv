@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="Blabyap.Views.TourCarouselPage"
+             xmlns:local="clr-namespace:Blabyap.Views"
+               BackgroundColor="#FF5C4C" BackgroundImage="bg">
+
+<local:AppTour1Page/>
+<local:AppTour2Page/>
+    
+<!--    <ContentPage>
+        <Label Text="priya" BackgroundColor="Yellow"/>
+    </ContentPage>
+        <ContentPage>
+        <Label Text="Jenie" BackgroundColor="Purple"/>
+    </ContentPage>-->
+</CarouselPage>

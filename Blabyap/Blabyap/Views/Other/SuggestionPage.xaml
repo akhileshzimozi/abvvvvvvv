@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:syncfusion1="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Blabyap.Views.Other.SuggestionPage"
+              x:Name="suggestPageRef"
+              NavigationPage.HasNavigationBar="False">
+
+
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,25,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid RowSpacing="10">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="8.8*"/>
+        </Grid.RowDefinitions>
+        <Image Source="bg" Grid.Row="0" Grid.RowSpan="2" Aspect="AspectFill"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button  Grid.Column="0" Image="back" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Transparent" 
+               Command="{Binding BindingContext.PreviousCommand,Source={x:Reference suggestPageRef}}" >
+                <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="10,0,10,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Button.Margin>
+            </Button>
+
+            <Label Grid.Column="1" Text="Suggestion" Style="{StaticResource heading}" />
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Margin="20,20,20,5" Spacing="20">
+                <Entry Placeholder="Full Name" Text="{Binding FullName}" Style="{StaticResource entry}"/>
+                <Label  Text="{Binding Email}" Style="{StaticResource entry}"/>
+                <Entry Placeholder="Mobile" Keyboard="Telephone" Text="{Binding Mobile}" Style="{StaticResource entry}"/>
+                <Editor Placeholder="Message"  AutoSize="TextChanges" Text="{Binding Message}" Style="{StaticResource entry}"/>
+            </StackLayout>
+
+            <syncfusion1:SfBusyIndicator  x:Name="busyIndicator" Title="Loading..." Grid.Row="0"  IsVisible="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" />
+
+
+
+            <Button Image="Sendbtn" Grid.Row="2" Margin="0,40,0,0"  BackgroundColor="Transparent"
+                    Command="{Binding BindingContext.SendCommand,Source={x:Reference suggestPageRef}}"
+                    />
+
+
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

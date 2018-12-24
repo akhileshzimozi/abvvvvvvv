@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:theming="clr-namespace:Blabyap.Theming" x:Class="Blabyap.Theming.ElementStyling">
+    <ResourceDictionary.MergedDictionaries>
+        <theming:ColorPalette />
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="NavigationPage">
+                <Setter Property="BarTextColor" Value="{StaticResource NavigationText}" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryDark}" />
+            </Style>
+            <Style TargetType="TabbedPage">
+                <Setter Property="BarTextColor" Value="{StaticResource NavigationText}" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryDark}" />
+            </Style>
+            
+                  <!--Button Styles Start-->
+ 
+            <!--Button Styles End-->
+          
+          <!-- Heading Style-->
+            <Style TargetType="Label"  x:Key="heading">
+                   <Setter Property="TextColor" Value="#FFFFFF" />
+                   <Setter Property="BackgroundColor" Value="Transparent" />
+                   <Setter Property="FontSize" Value="Large" />
+                   <Setter Property="Margin" Value="10" />
+                   <Setter Property="HorizontalOptions" Value="Center" />
+                   <Setter Property="VerticalOptions" Value="Start" />
+            </Style> 
+     
+        <!--Entry Style -->    
+            <Style TargetType="Entry"  x:Key="entry">
+                   <Setter Property="TextColor" Value="#FFFFFF" />
+                   <Setter Property="PlaceholderColor" Value="White" />
+                   <Setter Property="BackgroundColor" Value="Transparent" />
+                   <Setter Property="FontSize" Value="Small" />
+                   <Setter Property="HorizontalTextAlignment" Value="Start" />
+            </Style>   
+
+        <!--Picker Style -->
+            <Style TargetType="Picker"  x:Key="picker">
+                   <Setter Property="TextColor" Value="#444F63" />
+                   <Setter Property="BackgroundColor" Value="#FFFFFF" />
+                   <Setter Property="FontSize" Value="Small" />
+                   <Setter Property="FontFamily" Value="Gibson" />
+            </Style>
+        <!--Label Style -->
+            <Style TargetType="Label"  x:Key="labelwhite">
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontFamily" Value="Gibson" />
+            </Style>
+            
+            <Style TargetType="Label"  x:Key="labelblack">
+                <Setter Property="TextColor" Value="#000000" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontFamily" Value="Gibson" />
+            </Style>
+</ResourceDictionary>

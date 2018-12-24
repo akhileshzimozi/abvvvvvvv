@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="Blabyap.Views.Home.BlabyMasterDetailPage"
+                  xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+                    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                   prism:ViewModelLocator.AutowireViewModel="True"
+                 xmlns:defaultpage="clr-namespace:Blabyap.Views"
+                   xmlns:CustomViewCell="clr-namespace:Blabyap.Controls"
+                  >
+    <MasterDetailPage.Master>
+       <NavigationPage Title="Menu" 
+                        Icon="masterIcon">
+
+            <x:Arguments>
+                <ContentPage Title="{Binding Name}">
+
+                    <ListView ItemsSource="{Binding MenuItems}"
+                              SelectedItem="{Binding SelectedMenuItem}"
+                              SeparatorColor="Transparent"
+                              RowHeight="80"
+                              SeparatorVisibility="Default"
+                              BackgroundColor="#000000">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                 <CustomViewCell:ExtendedViewCell SelectedBackgroundColor="Pink" >
+                       
+                                <ViewCell.View>
+
+                                    <!-- Main design for our menu items -->
+                                    <StackLayout VerticalOptions="FillAndExpand"
+                                                 Orientation="Horizontal"
+                                                 Padding="20,10,0,10"
+                                                 Spacing="20">
+
+                                        <Image Source="{Binding Icon}"
+                                               WidthRequest="35"
+                                               HeightRequest="35"
+                                               VerticalOptions="Center" />
+
+                                        <Label Text="{Binding Title}"
+                                               FontSize="Medium"
+                                               VerticalOptions="Center"
+                                               TextColor="White"/>
+                                    </StackLayout>
+                                </ViewCell.View>
+                               
+                                 </CustomViewCell:ExtendedViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                        <ListView.Behaviors>
+                            <b:EventToCommandBehavior EventName="ItemTapped" 
+                                                      Command="{Binding NavigateCommand}" />
+                        </ListView.Behaviors>
+
+                    </ListView>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Master>
+    
+    <MasterDetailPage.Detail>
+
+<NavigationPage>
+ <x:Arguments>
+    <!-- <defaultpage:MyCVPage Title="My CV"/>-->
+    <ContentPage Title="This is MyView"/>
+            </x:Arguments>
+            
+</NavigationPage>
+</MasterDetailPage.Detail>
+    
+</MasterDetailPage>

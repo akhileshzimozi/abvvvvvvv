@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+                 Title="{Binding Title}" x:Class="Blabyap.Views.Match.UnMatchUserPopupPage">
+    <!-- TODO: // Add Some Content -->
+  <pages:PopupPage.Animation>
+    <animations:ScaleAnimation
+      PositionIn="Bottom"
+      PositionOut="Center"
+      ScaleIn="1"
+      ScaleOut="0.7"
+      DurationIn="700"
+      EasingIn="BounceOut"/>
+  </pages:PopupPage.Animation>
+  <ScrollView
+    HorizontalOptions="Center"
+    VerticalOptions="Center">
+    <AbsoluteLayout>
+      <Frame
+        x:Name="FrameContainer"
+        Margin="15"
+        HorizontalOptions="Center"
+        BackgroundColor="White">
+        <StackLayout IsClippedToBounds="True" Padding="10, 5" Spacing="10">
+            <Label Text="Unmatch User" TextColor="#ff5C4C" HorizontalTextAlignment="Center" FontSize="Small"/>        
+            <StackLayout Orientation="Horizontal">
+                <Picker HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" TextColor="#000000"
+                        x:Name="ReasonUnmatch" Title="Reason" FontSize="Small"/>
+            </StackLayout>
+            
+            <StackLayout >
+                <Label HorizontalOptions="Start" Text="Other details" FontSize="Small"/>           
+                <Label HorizontalOptions="Start"  Text="Optional" FontSize="Micro" TextColor="#ff5c4c"/>
+                <Entry HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" x:Name="OtherDetails"/>
+            </StackLayout>
+                    
+
+          <Button Margin="10, 5"
+            HorizontalOptions="Fill" x:Name="UnmatchButton" Image="unmatchbtn"/>
+          </StackLayout>
+      </Frame>
+      <ContentView
+          AbsoluteLayout.LayoutFlags="PositionProportional"
+          AbsoluteLayout.LayoutBounds="1, 0, -2, -2">
+        <ContentView.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnCloseButtonTapped"/>
+        </ContentView.GestureRecognizers>
+        <Image
+          x:Name="CloseImage"
+          HeightRequest="30"
+          WidthRequest="30">
+          <Image.Source>
+            <OnPlatform
+              x:TypeArguments="ImageSource"
+              Android="cancel"
+              iOS="cancel"
+              WinPhone="Assets/cancel"/>
+          </Image.Source>
+        </Image>
+      </ContentView>
+    </AbsoluteLayout>
+  </ScrollView>
+</pages:PopupPage>

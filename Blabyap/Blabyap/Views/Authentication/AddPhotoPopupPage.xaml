@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+				 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+				 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+				 Title="{Binding Title}" x:Class="Blabyap.Views.AddPhotoPopupPage"
+				  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+			 prism:ViewModelLocator.AutowireViewModel="True" x:Name="addPhotoRef">
+	<!-- TODO: // Add Some Content -->
+  <pages:PopupPage.Resources>
+	<ResourceDictionary>
+	  <Style x:Key="EntryStyle" TargetType="Entry">
+		<Setter Property="PlaceholderColor" Value="#000000"/>
+		<Setter Property="TextColor" Value="#000000"/>
+		<Setter Property="FontSize" Value="Small"/>
+	  </Style>
+	</ResourceDictionary>
+  </pages:PopupPage.Resources>
+  <pages:PopupPage.Animation>
+	<animations:ScaleAnimation
+	  PositionIn="Bottom"
+	  PositionOut="Center"
+	  ScaleIn="1"
+	  ScaleOut="0.7"
+	  DurationIn="700"
+	  EasingIn="BounceOut"/>
+  </pages:PopupPage.Animation>
+  <ScrollView
+	HorizontalOptions="Center"
+	VerticalOptions="Center">
+	<AbsoluteLayout>
+	  <Frame
+		x:Name="FrameContainer"
+		Margin="10"
+		HorizontalOptions="Center"
+		BackgroundColor="White">
+		<StackLayout
+			IsClippedToBounds="True"
+			Padding="10, 5"
+			Spacing="15">
+			<Label Text="Add Photo" HorizontalOptions="Center" TextColor="Red" />
+			<StackLayout Orientation="Horizontal">
+				<Button
+				Margin="5" Scale="1"
+				BackgroundColor="Transparent"
+				HorizontalOptions="FillAndExpand"
+				x:Name="LoginButton"
+					Command="{Binding BindingContext.TakePhoto,Source={x:Reference addPhotoRef}}"
+					
+				Image="camera">
+				<Button.HeightRequest>
+				  <OnPlatform x:TypeArguments="x:Double" Android="50" iOS="70" WinPhone="30"/>
+				</Button.HeightRequest>
+			  </Button>  
+						
+			 <Button
+				Margin="5" Scale="1"
+				BackgroundColor="Transparent"
+				HorizontalOptions="FillAndExpand"
+				x:Name="pickPhoto"
+				Command="{Binding BindingContext.PickImage,Source={x:Reference addPhotoRef}}"
+
+				Image="gallery">
+				<Button.HeightRequest>
+				  <OnPlatform x:TypeArguments="x:Double" Android="50" iOS="50" WinPhone="30"/>
+				</Button.HeightRequest>
+			  </Button>
+		   </StackLayout>
+
+		  </StackLayout>
+	  </Frame>
+	  <ContentView
+		  AbsoluteLayout.LayoutFlags="PositionProportional"
+		  AbsoluteLayout.LayoutBounds="1, 0, -1, -1">
+		<ContentView.GestureRecognizers>
+		  <TapGestureRecognizer Tapped="OnCloseButtonTapped"/>
+		</ContentView.GestureRecognizers>
+		<Image
+		  x:Name="CloseImage"
+		  HeightRequest="40"
+		  WidthRequest="40">
+		  <Image.Source>
+			<OnPlatform
+			  x:TypeArguments="ImageSource"
+			  Android="cancel"
+			  iOS="cancel"
+			  WinPhone="cancel"/>
+		  </Image.Source>
+		</Image>
+	  </ContentView>
+	</AbsoluteLayout>
+  </ScrollView>
+</pages:PopupPage>

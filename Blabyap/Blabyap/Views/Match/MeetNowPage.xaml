@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Blabyap.Views.MeetNowPage"
+              Title="{Binding Title}"
+             BackgroundImage="bg" 
+             NavigationPage.HasNavigationBar="True">
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,25,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    
+    <Grid RowSpacing="10" Margin="10">
+    <Grid.RowDefinitions >
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+   <!--     <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+                
+            <Button  Grid.Column="0" Image="masterIcon"
+               BackgroundColor="Transparent" Clicked="Handle_Clicked">
+                 <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,-45,0,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Button.Margin>  
+             </Button>
+            
+            <Label Grid.Column="1" Text="Meet Now" Style="{StaticResource heading}" />
+            
+            <Button  Grid.Column="2" Image="Shape" Scale=".7"
+               BackgroundColor="Transparent">
+                 <Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="10,-45,0,0" />
+                        <On Platform="Android" Value="-20,10,0,0" />
+                        <On Platform="UWP" Value="20,30,20,20" />
+                    </OnPlatform>
+                </Button.Margin>  
+             </Button>
+        </Grid>-->
+        
+          <ListView Grid.Row="0" ItemsSource="{Binding MeetnowModelsList}"
+                    RowHeight="120" SeparatorColor="Transparent" BackgroundColor="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame  Margin="10" BackgroundColor="#FFFFFF">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="7*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                               <Image Grid.Column="0" Source="{Binding ImageUrl}" HorizontalOptions="Start" VerticalOptions="Center" />
+                                <StackLayout Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Start">
+                                    <Label Text="{Binding Name}" TextColor="#FF5c4c"/>
+                                    <Label Text="{Binding Description}"  Style="{StaticResource labelblack}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="2" HorizontalOptions="End" VerticalOptions="Start">
+                                    <Label Text="{Binding Percentage}"  TextColor="#FF5c4c"/>
+                                    <Label Text="{Binding Minutes}"  Style="{StaticResource labelblack}"/>
+                                </StackLayout>
+                            </Grid>
+                           </Frame>     
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+       
+   </Grid>
+</ContentPage>
